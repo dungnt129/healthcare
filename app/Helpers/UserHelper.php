@@ -41,7 +41,7 @@ class UserHelper {
 		$user = [];
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -66,7 +66,7 @@ class UserHelper {
 		$lastUserId = 0;
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -89,7 +89,7 @@ class UserHelper {
 		$updateRow = 0;
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet

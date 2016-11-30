@@ -26,7 +26,7 @@ class UserController extends Controller
     */
     public function index() {
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -141,7 +141,7 @@ class UserController extends Controller
         }
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		$currentUser = session('user');
@@ -232,7 +232,7 @@ class UserController extends Controller
     */
 	public function delete($user_id) {
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet

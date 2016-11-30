@@ -50,7 +50,7 @@ class LoginController extends Controller
         }
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$loginSheetId = Config::get('google.login_data_sheet');
 
 		// Get login user data from google sheet

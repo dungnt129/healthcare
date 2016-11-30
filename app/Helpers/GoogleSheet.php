@@ -14,6 +14,11 @@ use Config;
  */
 class GoogleSheet {
 
+	/**
+     * @var system_model Singleton instance
+     */
+    protected static $_instance;
+
 	protected $client;
 
 	protected $service;
@@ -50,6 +55,21 @@ class GoogleSheet {
 
 		Cache::forever('service_token', $this->client->getAccessToken());
 	}
+
+	/**
+     * Get singletom instance
+     * @return App\Helpers\GoogleSheet
+     */
+    public final static function getInstance()
+    {
+        //Check instance
+        if (is_null(self::$_instance))
+        {
+            self::$_instance = new self();
+        }
+        //Return instance
+        return self::$_instance;
+    }
 
 	/**
 	 * Get Spread Sheet Data
