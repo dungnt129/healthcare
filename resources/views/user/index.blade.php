@@ -29,8 +29,6 @@
 					<th>Name</th>
 					<th>Address</th>
 					<th>Phone</th>
-					<th>Khám tim</th>
-					<th>Khám mắt</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
@@ -41,8 +39,6 @@
 					<td>{!! nl2br($user[1]) !!}</td>
 					<td>{!! nl2br($user[2]) !!}</td>
 					<td>{!! nl2br($user[3]) !!}</td>
-					<td>{!! nl2br($user[6]) !!}</td>
-					<td>{!! nl2br($user[7]) !!}</td>
 					<td class="text-center">
 						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}" class="btn btn-info btn-xs" title="Edit"><i class="icon-edit"></i></a>
 						<a href="{{ route('user.delete', ['user_id' => $user[0]]) }}" class="btn btn-danger btn-xs" title="Delete"><i class="icon-remove"></i></a>
