@@ -148,6 +148,9 @@ return [
 		// Form & Html
 		Collective\Html\HtmlServiceProvider::class,
 
+		// QR Code Generator
+		SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+
     ],
 
     /*
@@ -199,6 +202,7 @@ return [
 		'UserHelper'=> App\Helpers\UserHelper::class,
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
+		'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
 
     ],
 

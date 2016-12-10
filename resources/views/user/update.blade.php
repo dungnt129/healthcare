@@ -11,3 +11,7 @@
 	</div>
 </div>
 @stop
+
+@section('script')
+	<script src="{{ asset('js/user.form.js' . '?v=' . Config::get('version.js')) }}"></script>
+@stop

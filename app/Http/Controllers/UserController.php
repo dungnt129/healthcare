@@ -5,6 +5,7 @@ use App\Helpers\UserHelper;
 use Illuminate\Http\Request;
 use Validator;
 use Config;
+use Log;
 
 /**
  *
@@ -26,7 +27,7 @@ class UserController extends Controller
     */
     public function index() {
 		// Init
-		$googleSheetHelper = GoogleSheet::getInstance();
+		$googleSheetHelper = new GoogleSheet();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -75,11 +76,14 @@ class UserController extends Controller
     |
     */
 	public function create() {
+		$loginUser = session('user');
+
 		// Default user info
 		$user = $this->_initNewUser();
 
 		return view('user.create', [
 			'user'				=> $user,
+			'loginUser'			=> $loginUser,
 			'pageTitle'			=> 'Create User',
 		]);
 	}
@@ -93,6 +97,8 @@ class UserController extends Controller
     |
     */
 	public function update($user_id) {
+		$loginUser = session('user');
+
 		// Get user info
 		$user = UserHelper::getUserInfoById($user_id);
 
@@ -102,6 +108,7 @@ class UserController extends Controller
 
 		return view('user.update', [
 			'user'				=> $user,
+			'loginUser'			=> $loginUser,
 			'pageTitle'			=> 'Update User',
 		]);
 	}
@@ -119,8 +126,6 @@ class UserController extends Controller
 		$inputs = $request->all();
 
 		$userId = !empty($inputs['user_id']) ? $inputs['user_id'] : '';
-
-		//dd($inputs, $userId);
 
 		// Validate
 		$validator = Validator::make($inputs, [
@@ -141,15 +146,21 @@ class UserController extends Controller
         }
 
 		// Init
-		$googleSheetHelper = GoogleSheet::getInstance();
+		$googleSheetHelper = new GoogleSheet();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		$currentUser = session('user');
 
+		// Check lock
+		$lockDay1 = UserHelper::checkInputCompleteTab1($inputs);
+		$lockDay2 = UserHelper::checkInputCompleteTab234($inputs, 2);
+		$lockDay3 = UserHelper::checkInputCompleteTab234($inputs, 3);
+		$lockDay4 = UserHelper::checkInputCompleteTab234($inputs, 4);
+
 		// Update
 		if(!empty($userId)) {
 			// Get updating row
-			$row = UserHelper::getUpdateRowByUserId($userId);
+			list($row, $oldData) = UserHelper::getUpdateRowByUserId($userId);
 
 			if(empty($row)) {
 				return redirect()->route('user.update', ['user_id' => $userId])
@@ -159,8 +170,9 @@ class UserController extends Controller
 
 			// Update data
 			$updateRange = 'Sheet1!A' . $row;
-			$values = array(
-				array(
+
+			$values = [
+				[
 					// Cell values ...
 					'0' => (int) $userId,
 					'1' => $inputs["name"],
@@ -168,10 +180,18 @@ class UserController extends Controller
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y h:i:s', time()),
-					'6' => $inputs["kham_tim"],
-					'7' => $inputs["kham_mat"]
-				)
-			);
+					'6' => "",//$inputs["kham_tim"],
+					'7' => "",//$inputs["kham_mat"],
+					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : $oldData[8],
+					'9' => ($lockDay1) ? 1 : $oldData[9],
+					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : $oldData[10],
+					'11' => ($lockDay2) ? 1 : $oldData[11],
+					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : $oldData[12],
+					'13' => ($lockDay3) ? 1 : $oldData[13],
+					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : $oldData[14],
+					'15' => ($lockDay4) ? 1 : $oldData[15],
+				]
+			];
 
 			// Update google sheet
 			$result = $googleSheetHelper->updateRows($userSheetId, $updateRange, $values);
@@ -183,6 +203,8 @@ class UserController extends Controller
                         ->withInput();
 			}
 
+			// Log
+			Log::info('Update Customer', ["Customer_Id" => $userId, "Update_Values" => $values, "Update_Range" => $updateRange, "Edited_By" => $currentUser]);
 
 		} else {
 			// Calculate new user id
@@ -191,8 +213,8 @@ class UserController extends Controller
 
 			// Insert data
 			$updateRange = 'Sheet1';
-			$values = array(
-				array(
+			$values = [
+				[
 					// Cell values ...
 					'0' => (int) $lastUserId,
 					'1' => $inputs["name"],
@@ -200,10 +222,18 @@ class UserController extends Controller
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y h:i:s', time()),
-					'6' => $inputs["kham_tim"],
-					'7' => $inputs["kham_mat"]
-				)
-			);
+					'6' => "",//$inputs["kham_tim"],
+					'7' => "",//$inputs["kham_mat"],
+					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
+					'9' => ($lockDay1) ? 1 : 0,
+					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "",
+					'11' => ($lockDay2) ? 1 : 0,
+					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : "",
+					'13' => ($lockDay3) ? 1 : 0,
+					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : "",
+					'15' => ($lockDay4) ? 1 : 0,
+				]
+			];
 
 			$result = $googleSheetHelper->insertRows($userSheetId, $updateRange, $values);
 
@@ -216,6 +246,9 @@ class UserController extends Controller
 
 			// Assign new user id
 			$userId = $lastUserId;
+
+			// Log
+			Log::info('Create Customer', ["Customer_Id" => $userId, "Insert_Values" => $values, "Update_Range" => $updateRange, "Edited_By" => $currentUser]);
 		}
 
 		// Success
@@ -232,8 +265,9 @@ class UserController extends Controller
     */
 	public function delete($user_id) {
 		// Init
-		$googleSheetHelper = GoogleSheet::getInstance();
+		$googleSheetHelper = new GoogleSheet();
 		$userSheetId = Config::get('google.user_data_sheet');
+		$currentUser = session('user');
 
 		// Get list user data from google sheet
 		$users = $googleSheetHelper->getSpreadSheetData($userSheetId);
@@ -258,6 +292,9 @@ class UserController extends Controller
 			return redirect()->route('user.list')->with('fail_message', 'User id is not exist.');
 		}
 
+		// Log
+		Log::info('Delete Customer', ["Customer_Id" => $user_id, "Deleted_By" => $currentUser]);
+
 		// Success
 		return redirect()->route('user.list')->with('success_message', 'User has been deleted.');
 	}
@@ -271,7 +308,64 @@ class UserController extends Controller
 			"",	//Last edited by
 			"",	//Last edited time
 			"",	//Khám tim
-			""	//Khám mắt
+			"",	//Khám mắt
+			[ // Tab 1
+				"tuvanvien1" => [
+					"tentuvanvien" => "",
+					"date" => "",
+					"accept" => "",
+					"birthyear" => "",
+					"sex" => "",
+					"isVietnamese" => "",
+					"hasHIVfriend" => "",
+					"hasSexForCash" => "",
+					"hasGiangMaiInLastYear" => "",
+					"hasLauInLastYear" => "",
+					"hasChlamydiaInLastYear" => "",
+					"howManySexFriends" => "",
+					"howManyAssSexFriends" => "",
+					"hasCondomWhenAssSex" => "",
+					"hasAlwaysUseCondomWhenAssSex" => "",
+					"hasCocainInLastYear" => "",
+					"hasAnotherCocainLastYear" => "",
+					"hasPaidForPrEP" => "",
+					"email" => "",
+					"mobile" => "",
+					"howDoYouKnowPrep" => "",
+					"howDoYouKnowPrepText" => "",
+					"otherComment" => "",
+				],
+				"bacsi" => [
+					"tenbacsi" => "",
+					"date" => "",
+					"fastHIVresult" => "",
+					"fastHIVresultdate" => "",
+					"confirmHIVresult" => "",
+					"confirmHIVresultdate" => "",
+					"viemGanBresult" => "",
+					"viemGanBresultdate" => "",
+					"sangLocViemGanBresult" => "",
+					"sangLocViemGanBresultdate" => "",
+					"antiHBsresult" => "",
+					"antiHBsresultdate" => "",
+					"antiHCVresult" => "",
+					"antiHCVresultdate" => "",
+					"antiHAVresult" => "",
+					"antiHAVresultdate" => "",
+					"giangmaiResult" => "",
+					"giangmaiResultDate" => "",
+					"chucnangthanResult" => "",
+					"chucnangthanResultDate" => "",
+					"otherComment" => ""
+				],
+				"tuvanvien3" => [
+					"tentuvanvien" => "",
+					"date" => "",
+					"accept_prep" => "",
+					"maBenhNhan" => "",
+					"otherComment" => ""
+				]
+			]
 		];
 	}
 }

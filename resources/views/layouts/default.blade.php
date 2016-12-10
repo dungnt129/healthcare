@@ -14,6 +14,7 @@ $versionCss = '?v=' . Config::get('version.css');
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css' . $versionCss) }}" />
 		<link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.min.css' . $versionCss) }}" />
 		<link rel="stylesheet" href="{{ asset('css/uniform.css' . $versionCss) }}" />
+		<link rel="stylesheet" href="{{ asset('css/datepicker.css' . $versionCss) }}" />
 		<link rel="stylesheet" href="{{ asset('css/select2.css' . $versionCss) }}" />
 		<link rel="stylesheet" href="{{ asset('css/matrix-style.css' . $versionCss) }}" />
 		<link rel="stylesheet" href="{{ asset('css/matrix-media.css' . $versionCss) }}" />
@@ -55,6 +56,7 @@ $versionCss = '?v=' . Config::get('version.css');
 		<script src="{{ asset('js/jquery.min.js' . $versionCss) }}"></script>
 		<script src="{{ asset('js/jquery.ui.custom.js' . $versionCss) }}"></script>
 		<script src="{{ asset('js/bootstrap.min.js' . $versionCss) }}"></script>
+		<script src="{{ asset('js/bootstrap-datepicker.js' . $versionCss) }}"></script>
 		<script src="{{ asset('js/jquery.uniform.js' . $versionCss) }}"></script>
 		<script src="{{ asset('js/select2.min.js' . $versionCss) }}"></script>
 		<script src="{{ asset('js/jquery.dataTables.min.js' . $versionCss) }}"></script>

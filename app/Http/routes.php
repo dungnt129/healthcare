@@ -42,39 +42,33 @@ Route::group([
 {
 
 	/* User route */
-	Route::get('user/detail/{user_id}', [
-		'as' => 'user.detail',
-		'uses' => 'UserController@detail'
+//	Route::get('user/detail/{user_id}', [
+//		'as' => 'user.detail',
+//		'uses' => 'UserController@detail'
+//	]);
+
+	Route::get('user/list', [
+		'as' => 'user.list',
+		'uses' => 'UserController@index'
 	]);
 
-	Route::group([
-		'middleware' => 'auth.admin'
-	], function()
-	{
-		Route::get('user/list', [
-			'as' => 'user.list',
-			'uses' => 'UserController@index'
-		]);
+	Route::get('user/create', [
+		'as' => 'user.create',
+		'uses' => 'UserController@create'
+	]);
 
-		Route::get('user/create', [
-			'as' => 'user.create',
-			'uses' => 'UserController@create'
-		]);
+	Route::get('user/update/{user_id}', [
+		'as' => 'user.update',
+		'uses' => 'UserController@update'
+	]);
 
-		Route::get('user/update/{user_id}', [
-			'as' => 'user.update',
-			'uses' => 'UserController@update'
-		]);
+	Route::post('user/save', [
+		'as' => 'user.save',
+		'uses' => 'UserController@save'
+	]);
 
-		Route::post('user/save', [
-			'as' => 'user.save',
-			'uses' => 'UserController@save'
-		]);
-
-		Route::get('user/delete/{user_id}', [
-			'as' => 'user.delete',
-			'uses' => 'UserController@delete'
-		]);
-	});
-
+	Route::get('user/delete/{user_id}', [
+		'as' => 'user.delete',
+		'uses' => 'UserController@delete'
+	]);
 });

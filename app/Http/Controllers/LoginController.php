@@ -24,6 +24,13 @@ class LoginController extends Controller
     |
     */
     public function index() {
+		// Save access page before login to redirect after login success
+		$previousUrl = redirect()->getUrlGenerator()->previous();
+		if($previousUrl != route('login') && $previousUrl != route('logout'))
+		{
+			session(['url.intended' => redirect()->getUrlGenerator()->previous()]);
+		}
+
 		return view('login.index');
     }
 
@@ -50,7 +57,7 @@ class LoginController extends Controller
         }
 
 		// Init
-		$googleSheetHelper = GoogleSheet::getInstance();
+		$googleSheetHelper = new GoogleSheet();
 		$loginSheetId = Config::get('google.login_data_sheet');
 
 		// Get login user data from google sheet
@@ -77,12 +84,12 @@ class LoginController extends Controller
 				$request->session()->put('user', $user);
 
 				// If user is admin
-				if($user[3] == 1) {
-					return redirect()->route('user.list');
-				} else {
-					// Normal, go to user detail page
-					return redirect()->route('user.detail', ['user_id' => $user[0]]);
-				}
+//				if($user[3] == 1) {
+					return redirect()->intended(route('user.list'));
+//				} else {
+//					// Normal, go to user detail page
+//					return redirect()->route('user.detail', ['user_id' => $user[0]]);
+//				}
 
 			}
 		}

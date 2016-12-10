@@ -1055,6 +1055,7 @@ div.dataTables_wrapper .ui-widget-header {
 /* Misc */
 .nopadding {
 	padding: 0 !important;
+	clear: both;
 }
 .nopadding .table {
 	margin-bottom: 0;
@@ -1586,4 +1587,36 @@ div.dataTables_wrapper .ui-widget-header {
 	text-align: center;
 }
 #sidebar .content{ display:none;}
+}
+
+/* Custom by DungNT */
+.form-horizontal .control-label-custom {
+	font-weight: bold;
+	padding-top: 15px;
+	padding-left: 30px;
+}
+.form-horizontal .control-sublabel-custom {
+/*	font-style: italic;*/
+	padding-top: 0px;
+	padding-left: 2px;
+}
+.form-horizontal .controls-custom {
+	margin-left: 45px;
+	padding: 10px 0;
+}
+
+.margin-right5 { margin-right: 5px;}
+.margin-right10 { margin-right: 10px;}
+.disabled{
+	pointer-events: none;
+    tab-index: -1;
+/*	cursor: not-allowed !important;*/
+	background-color: #eee !important;
+}
+
+@media (max-width: 480px) {
+	.form-horizontal .controls-custom {
+		margin-left: 0;
+		padding: 10px 30px;
+	}
 }
