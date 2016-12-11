@@ -26,10 +26,9 @@ class LoginController extends Controller
     public function index() {
 		// Save access page before login to redirect after login success
 		$previousUrl = redirect()->getUrlGenerator()->previous();
-		if($previousUrl != route('login') && $previousUrl != route('logout'))
-		{
-			session(['url.intended' => redirect()->getUrlGenerator()->previous()]);
-		}
+		if(!session()->has('url.intended')){
+            session()->put('url.intended', $previousUrl);
+        }
 
 		return view('login.index');
     }

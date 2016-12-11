@@ -183,13 +183,13 @@ class UserController extends Controller
 					'6' => "",//$inputs["kham_tim"],
 					'7' => "",//$inputs["kham_mat"],
 					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : $oldData[8],
-					'9' => ($lockDay1) ? 1 : $oldData[9],
+					'9' => ($lockDay1) ? 1 : (int) $oldData[9],
 					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : $oldData[10],
-					'11' => ($lockDay2) ? 1 : $oldData[11],
+					'11' => ($lockDay2) ? 1 : (int) $oldData[11],
 					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : $oldData[12],
-					'13' => ($lockDay3) ? 1 : $oldData[13],
+					'13' => ($lockDay3) ? 1 : (int) $oldData[13],
 					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : $oldData[14],
-					'15' => ($lockDay4) ? 1 : $oldData[15],
+					'15' => ($lockDay4) ? 1 : (int) $oldData[15],
 				]
 			];
 
