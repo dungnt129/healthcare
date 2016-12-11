@@ -8,7 +8,7 @@ return array(
 	| Prevent cached when making modifications
 	|
 	*/
-	'js' => env('VERSION_JS', '5.7.0'),
+	'js' => env('VERSION_JS', '1.0.0'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,6 +18,6 @@ return array(
 	| Prevent cached when making modifications
 	|
 	*/
-	'css' => env('VERSION_CSS', '5.7.0'),
+	'css' => env('VERSION_CSS', '1.0.0'),
 );
 

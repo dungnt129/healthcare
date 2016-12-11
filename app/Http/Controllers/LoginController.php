@@ -24,9 +24,10 @@ class LoginController extends Controller
     |
     */
     public function index() {
+		$base_url = url('/');
 		// Save access page before login to redirect after login success
 		$previousUrl = redirect()->getUrlGenerator()->previous();
-		if(!session()->has('url.intended')){
+		if(!session()->has('url.intended') && strpos($previousUrl, $base_url) !== false){
             session()->put('url.intended', $previousUrl);
         }
 

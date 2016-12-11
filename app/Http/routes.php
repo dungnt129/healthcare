@@ -40,13 +40,6 @@ Route::group([
 	'middleware' => 'auth.login'
 ], function()
 {
-
-	/* User route */
-//	Route::get('user/detail/{user_id}', [
-//		'as' => 'user.detail',
-//		'uses' => 'UserController@detail'
-//	]);
-
 	Route::get('user/list', [
 		'as' => 'user.list',
 		'uses' => 'UserController@index'

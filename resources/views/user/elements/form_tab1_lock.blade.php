@@ -1,5 +1,5 @@
 <div class="widget-box">
-	<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+	<div class="widget-title title-tuvanvien1"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tư vấn viên</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
 			{!! Form::text("tab[1][tuvanvien1][tentuvanvien]", $user[8]["tuvanvien1"]["tentuvanvien"], ["id" => "tab[1][tuvanvien1][tentuvanvien]", "class" => "span10", "disabled" => ""]) !!}
@@ -223,7 +223,7 @@
 </div>
 
 <div class="widget-box">
-	<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+	<div class="widget-title title-bacsi"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tên bác sĩ</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
 			{!! Form::text("tab[1][bacsi][tenbacsi]", $user[8]["bacsi"]["tenbacsi"], ["id" => "tab[1][bacsi][tenbacsi]", "class" => "span10", "disabled" => ""]) !!}
@@ -317,7 +317,7 @@
 </div>
 
 <div class="widget-box">
-	<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+	<div class="widget-title title-tuvanvien3"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tư vấn viên</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
 			{!! Form::text("tab[1][tuvanvien3][tentuvanvien]", $user[8]["tuvanvien3"]["tentuvanvien"], ["id" => "tab[1][tuvanvien3][tentuvanvien]", "class" => "span10", "disabled" => ""]) !!}

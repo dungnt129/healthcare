@@ -163,6 +163,10 @@ $(document).ready(function(){
 	});
 
 
-	$('.datepicker').datepicker();
+	$('.datepicker').datepicker({
+		'todayBtn': "linked",
+		'autoclose': true,
+		'todayHighlight': true
+	});
 });
 

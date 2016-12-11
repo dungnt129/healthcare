@@ -1,5 +1,5 @@
 <div class="widget-box">
-	<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+	<div class="widget-title title-tuvanvien1"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tư vấn viên</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
 			{!! Form::text("tab[{$tab}][tuvanvien1][tentuvanvien]", !empty($user[$index]["tuvanvien1"]["tentuvanvien"]) ? $user[$index]["tuvanvien1"]["tentuvanvien"] : "", ["id" => "tab[{$tab}][tuvanvien1][tentuvanvien]", "class" => "span10"]) !!}
@@ -186,7 +186,7 @@
 </div>
 
 <div class="widget-box">
-	<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+	<div class="widget-title title-bacsi"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tên bác sĩ</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
 			{!! Form::text("tab[{$tab}][bacsi][tenbacsi]", !empty($user[$index]["bacsi"]["tenbacsi"]) ? $user[$index]["bacsi"]["tenbacsi"]: "", ["id" => "tab[{$tab}][bacsi][tenbacsi]", "class" => "span10"]) !!}
@@ -262,7 +262,7 @@
 </div>
 
 <div class="widget-box">
-	<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+	<div class="widget-title title-tuvanvien3"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tư vấn viên</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
 			{!! Form::text("tab[{$tab}][tuvanvien3][tentuvanvien]", !empty($user[$index]["tuvanvien3"]["tentuvanvien"]) ? $user[$index]["tuvanvien3"]["tentuvanvien"]: "", ["id" => "tab[{$tab}][tuvanvien3][tentuvanvien]", "class" => "span10"]) !!}
