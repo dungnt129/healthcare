@@ -269,7 +269,7 @@ class UserController extends Controller
 		$currentUser = session('user');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId);
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:A');
 
 		// Check user exists
 		$row = 0;
