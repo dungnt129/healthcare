@@ -61,7 +61,7 @@ class LoginController extends Controller
 		$loginSheetId = Config::get('google.login_data_sheet');
 
 		// Get login user data from google sheet
-		$data = $googleSheetHelper->getSpreadSheetData($loginSheetId);
+		$data = $googleSheetHelper->getSpreadSheetData($loginSheetId, 'Sheet1!A:D');
 
 		// Check empty data login user
 		if(empty($data)) {
