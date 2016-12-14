@@ -32,7 +32,7 @@ class UserController extends Controller
 
 		// Get list user data from google sheet
 		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:D');
-		// $users = $googleSheetHelper->getSpreadSheetData($userSheetId);
+
 		// Skip data row header
 		if(!empty($users)) {
 			array_shift($users);
@@ -168,7 +168,7 @@ class UserController extends Controller
 			}
 
 			// Update data
-			$updateRange = 'Sheet1!A' . $row;
+			$updateRange = 'Sheet1!A' . $row . ':P' . $row;
 
 			$values = [
 				[
@@ -178,7 +178,7 @@ class UserController extends Controller
 					'2' => $inputs["address"],
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
-					'5' => date('d/m/Y h:i:s', time()),
+					'5' => date('d/m/Y H:i:s', time()),
 					'6' => "",//$inputs["kham_tim"],
 					'7' => "",//$inputs["kham_mat"],
 					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : $oldData[8],
@@ -220,7 +220,7 @@ class UserController extends Controller
 					'2' => $inputs["address"],
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
-					'5' => date('d/m/Y h:i:s', time()),
+					'5' => date('d/m/Y H:i:s', time()),
 					'6' => "",//$inputs["kham_tim"],
 					'7' => "",//$inputs["kham_mat"],
 					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
