@@ -45,7 +45,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId);
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:P');
 
 		if(empty($users)) return $user;
 
@@ -87,7 +87,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId);
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:A');
 
 		// Skip data row header
 		array_shift($users);
@@ -111,7 +111,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId);
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:P');
 
 		// Calculate update row
 		foreach($users as $key => $data) {
