@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Helpers;
 
 use Cache;
@@ -14,10 +15,12 @@ use Config;
  */
 class GoogleSheet {
 
+	/**
+	 * @var system_model Singleton instance
+	 */
+	protected static $_instance;
 	protected $client;
-
 	protected $service;
-
 	protected $timezone;
 
 	function __construct() {
@@ -32,7 +35,7 @@ class GoogleSheet {
 
 		/* If we have an access token */
 		if (Cache::has('service_token')) {
-		  $this->client->setAccessToken(Cache::get('service_token'));
+			$this->client->setAccessToken(Cache::get('service_token'));
 		}
 
 		$scopes = array('https://www.googleapis.com/auth/spreadsheets');
@@ -42,13 +45,25 @@ class GoogleSheet {
 
 		// Skip verify https on local
 //		$this->client->setHttpClient(new \GuzzleHttp\Client(['verify' => false]));
-
 		// Refresh access token if expired
 		if ($this->client->isAccessTokenExpired()) {
 			$this->client->refreshTokenWithAssertion();
 		}
 
 		Cache::forever('service_token', $this->client->getAccessToken());
+	}
+
+	/**
+	 * Get singletom instance
+	 * @return App\Helpers\GoogleSheet
+	 */
+	public final static function getInstance() {
+		//Check instance
+		if (is_null(self::$_instance)) {
+			self::$_instance = new self();
+		}
+		//Return instance
+		return self::$_instance;
 	}
 
 	/**
@@ -64,10 +79,9 @@ class GoogleSheet {
 		try {
 			$results = $this->service->spreadsheets_values->get($spreadsheetId, $range);
 
-			if($results) {
+			if ($results) {
 				return $results->getValues();
 			}
-
 		} catch (Exception $e) {
 			return $results;
 		}
@@ -89,16 +103,15 @@ class GoogleSheet {
 		try {
 
 			$body = new \Google_Service_Sheets_ValueRange(array(
-			  'values' => $values
+				'values' => $values
 			));
 			// Determines how input data should be interpreted.
 			// https://developers.google.com/sheets/reference/rest/v4/ValueInputOption
 			$params = array(
-			  'valueInputOption' => 'RAW'
+				'valueInputOption' => 'RAW'
 			);
 
 			$results = $this->service->spreadsheets_values->update($spreadsheetId, $range, $body, $params);
-
 		} catch (Exception $e) {
 			return $results;
 		}
@@ -120,16 +133,15 @@ class GoogleSheet {
 		try {
 
 			$body = new \Google_Service_Sheets_ValueRange(array(
-			  'values' => $values
+				'values' => $values
 			));
 
 			// Determines how input data should be interpreted.
 			// https://developers.google.com/sheets/reference/rest/v4/ValueInputOption
 			$params = array(
-			  'valueInputOption' => 'RAW'
+				'valueInputOption' => 'RAW'
 			);
 			$results = $this->service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
-
 		} catch (Exception $e) {
 			return $results;
 		}
@@ -166,11 +178,11 @@ class GoogleSheet {
 			));
 
 			$results = $this->service->spreadsheets->batchUpdate($spreadsheetId, $batchUpdateRequest);
-
 		} catch (Exception $e) {
 			return $results;
 		}
 
 		return $results;
 	}
+
 }

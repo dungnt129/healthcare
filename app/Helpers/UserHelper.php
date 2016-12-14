@@ -41,7 +41,7 @@ class UserHelper {
 		$user = [];
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -83,7 +83,7 @@ class UserHelper {
 		$lastUserId = 0;
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -104,25 +104,23 @@ class UserHelper {
 
 	public static function getUpdateRowByUserId($userId) {
 		$updateRow = 0;
-		$user = [];
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:P');
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:A');
 
 		// Calculate update row
 		foreach($users as $key => $data) {
 			// Compare with user id
 			if($data[0] == $userId && is_numeric($data[0])) {
 				$updateRow = $key + 1;
-				$user = $data;
 			}
 		}
 
-		return [$updateRow, $user];
+		return $updateRow;
 	}
 
 	public static function checkInputCompleteTab1($data) {

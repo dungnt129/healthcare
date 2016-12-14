@@ -27,7 +27,7 @@ class UserController extends Controller
     */
     public function index() {
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
@@ -37,6 +37,7 @@ class UserController extends Controller
 		if(!empty($users)) {
 			array_shift($users);
 		}
+
 		return view('user.index', [
 			'users'				=> $users,
 			'pageTitle'			=> 'List Users',
@@ -145,7 +146,7 @@ class UserController extends Controller
         }
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		$currentUser = session('user');
@@ -159,7 +160,7 @@ class UserController extends Controller
 		// Update
 		if(!empty($userId)) {
 			// Get updating row
-			list($row, $oldData) = UserHelper::getUpdateRowByUserId($userId);
+			$row = UserHelper::getUpdateRowByUserId($userId);
 
 			if(empty($row)) {
 				return redirect()->route('user.update', ['user_id' => $userId])
@@ -181,14 +182,14 @@ class UserController extends Controller
 					'5' => date('d/m/Y H:i:s', time()),
 					'6' => "",//$inputs["kham_tim"],
 					'7' => "",//$inputs["kham_mat"],
-					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : $oldData[8],
-					'9' => ($lockDay1) ? 1 : (int) $oldData[9],
-					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : $oldData[10],
-					'11' => ($lockDay2) ? 1 : (int) $oldData[11],
-					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : $oldData[12],
-					'13' => ($lockDay3) ? 1 : (int) $oldData[13],
-					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : $oldData[14],
-					'15' => ($lockDay4) ? 1 : (int) $oldData[15],
+					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : '',
+					'9' => ($lockDay1) ? 1 : 0,
+					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : '',
+					'11' => ($lockDay2) ? 1 : 0,
+					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : '',
+					'13' => ($lockDay3) ? 1 : 0,
+					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : '',
+					'15' => ($lockDay4) ? 1 : 0,
 				]
 			];
 
@@ -264,7 +265,7 @@ class UserController extends Controller
     */
 	public function delete($user_id) {
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 		$currentUser = session('user');
 
