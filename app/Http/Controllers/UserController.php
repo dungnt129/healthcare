@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Helpers\GoogleSheet;
 use App\Helpers\UserHelper;
@@ -15,17 +17,17 @@ use Log;
  * @author DungNT
  *
  */
-class UserController extends Controller
-{
+class UserController extends Controller {
 	/*
-    |--------------------------------------------------------------------------
-    | User List
-    |--------------------------------------------------------------------------
-    |
-    | Show user list
-    |
-    */
-    public function index() {
+	  |--------------------------------------------------------------------------
+	  | User List
+	  |--------------------------------------------------------------------------
+	  |
+	  | Show user list
+	  |
+	 */
+
+	public function index() {
 		// Init
 		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
@@ -34,30 +36,31 @@ class UserController extends Controller
 		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:D');
 
 		// Skip data row header
-		if(!empty($users)) {
+		if (!empty($users)) {
 			array_shift($users);
 		}
 
 		return view('user.index', [
-			'users'				=> $users,
-			'pageTitle'			=> 'List Users',
+			'users' => $users,
+			'pageTitle' => 'List Users',
 		]);
-    }
+	}
 
 	/*
-    |--------------------------------------------------------------------------
-    | User Detail
-    |--------------------------------------------------------------------------
-    |
-    | Show user detail
-    |
-    */
-    public function detail($user_id) {
+	  |--------------------------------------------------------------------------
+	  | User Detail
+	  |--------------------------------------------------------------------------
+	  |
+	  | Show user detail
+	  |
+	 */
+
+	public function detail($user_id) {
 		// Get user info from session
 		$user = session('user');
 
 		// Check user_id in session and url & user is not admin
-		if($user[0] != $user_id && $user[3] != 1) {
+		if ($user[0] != $user_id && $user[3] != 1) {
 			return view('errors.403');
 		}
 
@@ -65,16 +68,17 @@ class UserController extends Controller
 		$user = UserHelper::getUserInfoById($user_id);
 
 		return view('user.detail', ['user' => $user]);
-    }
+	}
 
 	/*
-    |--------------------------------------------------------------------------
-    | Create User
-    |--------------------------------------------------------------------------
-    |
-    | Display form create user
-    |
-    */
+	  |--------------------------------------------------------------------------
+	  | Create User
+	  |--------------------------------------------------------------------------
+	  |
+	  | Display form create user
+	  |
+	 */
+
 	public function create() {
 		$loginUser = session('user');
 
@@ -82,45 +86,47 @@ class UserController extends Controller
 		$user = $this->_initNewUser();
 
 		return view('user.create', [
-			'user'				=> $user,
-			'loginUser'			=> $loginUser,
-			'pageTitle'			=> 'Create User',
+			'user' => $user,
+			'loginUser' => $loginUser,
+			'pageTitle' => 'Create User',
 		]);
 	}
 
 	/*
-    |--------------------------------------------------------------------------
-    | Update User
-    |--------------------------------------------------------------------------
-    |
-    | Display form update user
-    |
-    */
+	  |--------------------------------------------------------------------------
+	  | Update User
+	  |--------------------------------------------------------------------------
+	  |
+	  | Display form update user
+	  |
+	 */
+
 	public function update($user_id) {
 		$loginUser = session('user');
 
 		// Get user info
 		$user = UserHelper::getUserInfoById($user_id);
 
-		if(empty($user)) {
+		if (empty($user)) {
 			return redirect()->route('user.list')->with('fail_message', 'User is not exist.');
 		}
 
 		return view('user.update', [
-			'user'				=> $user,
-			'loginUser'			=> $loginUser,
-			'pageTitle'			=> 'Update User',
+			'user' => $user,
+			'loginUser' => $loginUser,
+			'pageTitle' => 'Update User',
 		]);
 	}
 
 	/*
-    |--------------------------------------------------------------------------
-    | Update User
-    |--------------------------------------------------------------------------
-    |
-    | Display form update user
-    |
-    */
+	  |--------------------------------------------------------------------------
+	  | Update User
+	  |--------------------------------------------------------------------------
+	  |
+	  | Display form update user
+	  |
+	 */
+
 	public function save(Request $request) {
 		// Get user input
 		$inputs = $request->all();
@@ -129,21 +135,23 @@ class UserController extends Controller
 
 		// Validate
 		$validator = Validator::make($inputs, [
-            'name' => 'required'
-        ]);
+					'name' => 'required',
+					'address' => 'required',
+					'phone' => 'required'
+		]);
 
 		if ($validator->fails()) {
 			// Update
-			if(!empty($userId)) {
+			if (!empty($userId)) {
 				return redirect()->route('user.update', ['user_id' => $userId])
-                        ->withErrors($validator)
-                        ->withInput();
+								->withErrors($validator)
+								->withInput();
 			}
 
-            return redirect()->route('user.create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+			return redirect()->route('user.create')
+							->withErrors($validator)
+							->withInput();
+		}
 
 		// Init
 		$googleSheetHelper = GoogleSheet::getInstance();
@@ -158,14 +166,14 @@ class UserController extends Controller
 		$lockDay4 = UserHelper::checkInputCompleteTab234($inputs, 4);
 
 		// Update
-		if(!empty($userId)) {
+		if (!empty($userId)) {
 			// Get updating row
 			$row = UserHelper::getUpdateRowByUserId($userId);
 
-			if(empty($row)) {
+			if (empty($row)) {
 				return redirect()->route('user.update', ['user_id' => $userId])
-						->with('fail_message', 'System error.User information cannot be saved.')
-                        ->withInput();
+								->with('fail_message', 'System error.User information cannot be saved.')
+								->withInput();
 			}
 
 			// Update data
@@ -180,8 +188,8 @@ class UserController extends Controller
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y H:i:s', time()),
-					'6' => "",//$inputs["kham_tim"],
-					'7' => "",//$inputs["kham_mat"],
+					'6' => "", //$inputs["kham_tim"],
+					'7' => "", //$inputs["kham_mat"],
 					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : '',
 					'9' => ($lockDay1) ? 1 : 0,
 					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : '',
@@ -197,33 +205,38 @@ class UserController extends Controller
 			$result = $googleSheetHelper->updateRows($userSheetId, $updateRange, $values);
 
 			// Error
-			if(!$result) {
+			if (!$result) {
 				return redirect()->route('user.update', ['user_id' => $userId])
-						->with('fail_message', 'System error.User information cannot be saved.')
-                        ->withInput();
+								->with('fail_message', 'System error.User information cannot be saved.')
+								->withInput();
 			}
 
 			// Log
 			Log::info('Update Customer', ["Customer_Id" => $userId, "Update_Values" => $values, "Update_Range" => $updateRange, "Edited_By" => $currentUser]);
-
 		} else {
-			// Calculate new user id
-			$lastUserId = UserHelper::getLastUserId();
-			$lastUserId++;
+			// Get next user id
+			$nextId = UserHelper::getNextUserId();
+
+			// Error
+			if (!$nextId) {
+				return redirect()->route('user.create')
+								->with('fail_message', 'System error.User information cannot be saved.')
+								->withInput();
+			}
 
 			// Insert data
 			$updateRange = 'Sheet1';
 			$values = [
 				[
 					// Cell values ...
-					'0' => (int) $lastUserId,
+					'0' => (int) $nextId,
 					'1' => $inputs["name"],
 					'2' => $inputs["address"],
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y H:i:s', time()),
-					'6' => "",//$inputs["kham_tim"],
-					'7' => "",//$inputs["kham_mat"],
+					'6' => "", //$inputs["kham_tim"],
+					'7' => "", //$inputs["kham_mat"],
 					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
 					'9' => ($lockDay1) ? 1 : 0,
 					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "",
@@ -238,17 +251,16 @@ class UserController extends Controller
 			$result = $googleSheetHelper->insertRows($userSheetId, $updateRange, $values);
 
 			// Error
-			if(!$result) {
+			if (!$result) {
 				return redirect()->route('user.create')
-                        ->with('fail_message', 'System error.User information cannot be saved.')
-                        ->withInput();
+								->with('fail_message', 'System error.User information cannot be saved.')
+								->withInput();
 			}
-
-			// Assign new user id
-			$userId = $lastUserId;
-
 			// Log
-			Log::info('Create Customer', ["Customer_Id" => $userId, "Insert_Values" => $values, "Update_Range" => $updateRange, "Edited_By" => $currentUser]);
+			Log::info('Create Customer', ["Insert_Values" => $values, "Update_Range" => $updateRange, "Edited_By" => $currentUser]);
+
+			// Set new user id to redirect
+			$userId = $nextId;
 		}
 
 		// Success
@@ -256,13 +268,14 @@ class UserController extends Controller
 	}
 
 	/*
-    |--------------------------------------------------------------------------
-    | Delete User
-    |--------------------------------------------------------------------------
-    |
-    | Delete user in google sheet
-    |
-    */
+	  |--------------------------------------------------------------------------
+	  | Delete User
+	  |--------------------------------------------------------------------------
+	  |
+	  | Delete user in google sheet
+	  |
+	 */
+
 	public function delete($user_id) {
 		// Init
 		$googleSheetHelper = GoogleSheet::getInstance();
@@ -274,18 +287,18 @@ class UserController extends Controller
 
 		// Check user exists
 		$row = 0;
-		foreach($users as $key => $user) {
-			if($user[0] == $user_id) {
+		foreach ($users as $key => $user) {
+			if ($user[0] == $user_id) {
 				$row = $key;
 			}
 		}
 
 		// Delete data
-		if($row) {
+		if ($row) {
 			$result = $googleSheetHelper->deleteRows($userSheetId, $row);
 
 			// Error
-			if(!$result) {
+			if (!$result) {
 				return redirect()->route('user.list')->with('fail_message', 'System error.User cannot be deleted.');
 			}
 		} else {
@@ -301,14 +314,14 @@ class UserController extends Controller
 
 	private function _initNewUser() {
 		return [
-			"",	//ID
-			"",	//Name
-			"",	//Address
-			"",	//Phone
-			"",	//Last edited by
-			"",	//Last edited time
-			"",	//Khám tim
-			"",	//Khám mắt
+			"", //ID
+			"", //Name
+			"", //Address
+			"", //Phone
+			"", //Last edited by
+			"", //Last edited time
+			"", //Khám tim
+			"", //Khám mắt
 			[ // Tab 1
 				"tuvanvien1" => [
 					"tentuvanvien" => "",
@@ -368,4 +381,5 @@ class UserController extends Controller
 			]
 		];
 	}
+
 }

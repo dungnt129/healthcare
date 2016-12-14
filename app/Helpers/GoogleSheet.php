@@ -97,7 +97,7 @@ class GoogleSheet {
 	 * @param array $values
 	 * @return array
 	 */
-	public function updateRows($spreadsheetId, $range = 'Sheet1', $values) {
+	public function updateRows($spreadsheetId, $range = 'Sheet1', $values, $mode = 'RAW') {
 		$results = false;
 
 		try {
@@ -108,7 +108,7 @@ class GoogleSheet {
 			// Determines how input data should be interpreted.
 			// https://developers.google.com/sheets/reference/rest/v4/ValueInputOption
 			$params = array(
-				'valueInputOption' => 'RAW'
+				'valueInputOption' => $mode
 			);
 
 			$results = $this->service->spreadsheets_values->update($spreadsheetId, $range, $body, $params);
@@ -127,7 +127,7 @@ class GoogleSheet {
 	 * @param array $values
 	 * @return array
 	 */
-	public function insertRows($spreadsheetId, $range = 'Sheet1', $values) {
+	public function insertRows($spreadsheetId, $range = 'Sheet1', $values, $mode = 'RAW') {
 		$results = false;
 
 		try {
@@ -139,7 +139,7 @@ class GoogleSheet {
 			// Determines how input data should be interpreted.
 			// https://developers.google.com/sheets/reference/rest/v4/ValueInputOption
 			$params = array(
-				'valueInputOption' => 'RAW'
+				'valueInputOption' => $mode
 			);
 			$results = $this->service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
 		} catch (Exception $e) {

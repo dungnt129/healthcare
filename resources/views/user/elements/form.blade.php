@@ -14,7 +14,7 @@
 </div>
 @endif
 
-<form class="form-horizontal" method="post" action="{{ route("user.save") }}" name="basic_validate" id="basic_validate" novalidate="novalidate">
+<form class="form-horizontal" method="post" action="{{ route("user.save") }}" name="basic_validate" id="basic_validate">
 	@if (isset($errors) && count($errors) > 0)
 	<div class="alert alert-danger">
 		<ul>
@@ -43,13 +43,13 @@
 		<div class="control-group">
 			<label class="control-label">Address</label>
 			<div class="controls">
-				{!! Form::text("address", $user[2], ["id" => "address"]) !!}
+				{!! Form::text("address", $user[2], ["id" => "address", "required" => ""]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Phone</label>
 			<div class="controls">
-				{!! Form::text("phone", $user[3], ["id" => "phone"]) !!}
+				{!! Form::text("phone", $user[3], ["id" => "phone", "required" => ""]) !!}
 			</div>
 		</div>
 	</div>

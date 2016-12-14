@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
 	$('.data-table').dataTable({
-//		"aaSorting": [[ 0, "desc" ]],
+		"aaSorting": [[ 0, "desc" ]],
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
 		"sDom": '<""l>t<"F"fp>'

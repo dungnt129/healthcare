@@ -102,6 +102,21 @@ class UserHelper {
 		return $lastUserId;
 	}
 
+	public static function getNextUserId() {
+		$nextUserId = 1;
+
+		// Init
+		$googleSheetHelper = GoogleSheet::getInstance();
+		$userSheetId = Config::get('google.user_data_sheet');
+
+		// Get next user id in user sheet data
+		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!T2');
+
+		if(empty($data[0][0])) return $nextUserId;
+
+		return $data[0][0];
+	}
+
 	public static function getUpdateRowByUserId($userId) {
 		$updateRow = 0;
 
