@@ -31,13 +31,12 @@ class UserController extends Controller
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId);
-
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:D');
+		// $users = $googleSheetHelper->getSpreadSheetData($userSheetId);
 		// Skip data row header
 		if(!empty($users)) {
 			array_shift($users);
 		}
-
 		return view('user.index', [
 			'users'				=> $users,
 			'pageTitle'			=> 'List Users',
