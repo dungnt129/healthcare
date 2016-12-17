@@ -20,7 +20,8 @@ $versionCss = '?v=' . Config::get('version.css');
     <body>
         <div id="loginbox">
             <form id="loginform" class="form-vertical" action="{{ route('login.submit') }}" method="POST">
-				<div class="control-group normal_text"> <h3>Login to continue</h3></div>
+<!--				<div class="control-group normal_text"> <h3>Login to continue</h3></div>-->
+				<div class="control-group normal_text"> <h3><img src="{{ asset('img/logo2.png') }}" alt="Logo" /></h3></div>
 				@if (isset($errors) && count($errors) > 0)
 					<div class="alert alert-danger">
 						<ul>
@@ -50,7 +51,6 @@ $versionCss = '?v=' . Config::get('version.css');
 							<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 						</div>
 					</div>
-                    <!--<span class="pull-right"><a type="submit" href="index.html" class="btn btn-success" /> Login</a></span>-->
                 </div>
             </form>
         </div>

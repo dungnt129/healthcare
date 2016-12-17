@@ -53,14 +53,14 @@ hr{ border-top-color:#dadada;margin: 10px 0px;}
 	z-index: -9;
 }
 #header h1 {
-	background: url("../img/logo.png") no-repeat scroll 0 0 transparent;
-	height: 31px;
+	background: url("../img/logo2.png") no-repeat scroll 0 0 transparent;
+	height: 35px;
 	left: 20px;
 	line-height: 600px;
 	overflow: hidden;
 	position: relative;
 	top: 26px;
-	width: 191px;
+	width: 179px;
 }
 #header h1 a {
 	display: block;
@@ -98,6 +98,7 @@ hr{ border-top-color:#dadada;margin: 10px 0px;}
 	top:0px;
 	z-index: 20;
 	margin: 0;
+	background: #1f262d;
 }
 #user-nav > ul {
 	margin: 0;
