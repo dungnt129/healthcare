@@ -98,6 +98,25 @@ $(function () {
 		$.uniform.update();
 	});
 
+	// Toggle sub question
+	$("#tab1_tuvanvien1_howManySexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab1_tuvanvien1_howManyAssSexFriends").fadeIn();
+		} else {
+			$("#question_tab1_tuvanvien1_howManyAssSexFriends").fadeOut();
+			$("#question_tab1_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+
+	$("#tab1_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab1_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+		} else {
+			$("#question_tab1_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+	/* End tab 1 */
+
 	/* Tab 2, 3, 4 */
 	$('.tab2_tuvanvien1_hasTieuChay').on('click', function () {
 
@@ -349,5 +368,57 @@ $(function () {
 		$.uniform.update();
 	});
 
+	// Toggle sub question
+	$("#tab2_tuvanvien1_howManySexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab2_tuvanvien1_howManyAssSexFriends").fadeIn();
+		} else {
+			$("#question_tab2_tuvanvien1_howManyAssSexFriends").fadeOut();
+			$("#question_tab2_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
 
+	$("#tab2_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab2_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+		} else {
+			$("#question_tab2_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+
+	$("#tab3_tuvanvien1_howManySexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab3_tuvanvien1_howManyAssSexFriends").fadeIn();
+		} else {
+			$("#question_tab3_tuvanvien1_howManyAssSexFriends").fadeOut();
+			$("#question_tab3_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+
+	$("#tab3_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab3_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+		} else {
+			$("#question_tab3_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+
+	$("#tab4_tuvanvien1_howManySexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab4_tuvanvien1_howManyAssSexFriends").fadeIn();
+		} else {
+			$("#question_tab4_tuvanvien1_howManyAssSexFriends").fadeOut();
+			$("#question_tab4_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+
+	$("#tab4_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		if ($(this).val() > 0) {
+			$("#question_tab4_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+		} else {
+			$("#question_tab4_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+		}
+	});
+
+	/* End tab 2, 3, 4 */
 });
