@@ -94,7 +94,7 @@ hr{ border-top-color:#dadada;margin: 10px 0px;}
 /* Top user navigation */
 #user-nav {
 	position: absolute;
-	left: 220px;
+	right: 20px;
 	top:0px;
 	z-index: 20;
 	margin: 0;

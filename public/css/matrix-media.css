@@ -3,7 +3,7 @@ body {
 }
 
 #header {
-	background-color: #2e363f;
+	background-color: #fff;
    margin-top:10px;
 }
 #search input[type=text], #search button {
