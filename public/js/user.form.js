@@ -100,19 +100,33 @@ $(function () {
 
 	// Toggle sub question
 	$("#tab1_tuvanvien1_howManySexFriends").on('change', function () {
+		// init
+		var inputHowManyAssSexFriends = $("#tab1_tuvanvien1_howManyAssSexFriends");
+		var questionHowManyAssSexFriends = $("#question_tab1_tuvanvien1_howManyAssSexFriends");
+		var questionHasCondomWhenAssSex = $("#question_tab1_tuvanvien1_hasCondomWhenAssSex");
+
 		if ($(this).val() > 0) {
-			$("#question_tab1_tuvanvien1_howManyAssSexFriends").fadeIn();
+			// Clear old data
+			inputHowManyAssSexFriends.val('');
+			questionHowManyAssSexFriends.fadeIn();
 		} else {
-			$("#question_tab1_tuvanvien1_howManyAssSexFriends").fadeOut();
-			$("#question_tab1_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHowManyAssSexFriends.fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
 	$("#tab1_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		var questionHasCondomWhenAssSex = $("#question_tab1_tuvanvien1_hasCondomWhenAssSex");
+		var checkboxHasCondomWhenAssSex = $('.tab1_tuvanvien1_hasCondomWhenAssSex');
+
 		if ($(this).val() > 0) {
-			$("#question_tab1_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+			// Clear old data
+			checkboxHasCondomWhenAssSex.attr('checked', false);
+			$.uniform.update();
+
+			questionHasCondomWhenAssSex.fadeIn();
 		} else {
-			$("#question_tab1_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 	/* End tab 1 */
@@ -370,53 +384,95 @@ $(function () {
 
 	// Toggle sub question
 	$("#tab2_tuvanvien1_howManySexFriends").on('change', function () {
+		// init
+		var inputHowManyAssSexFriends = $("#tab2_tuvanvien1_howManyAssSexFriends");
+		var questionHowManyAssSexFriends = $("#question_tab2_tuvanvien1_howManyAssSexFriends");
+		var questionHasCondomWhenAssSex = $("#question_tab2_tuvanvien1_hasCondomWhenAssSex");
+
 		if ($(this).val() > 0) {
-			$("#question_tab2_tuvanvien1_howManyAssSexFriends").fadeIn();
+			// Clear old data
+			inputHowManyAssSexFriends.val('');
+			questionHowManyAssSexFriends.fadeIn();
 		} else {
-			$("#question_tab2_tuvanvien1_howManyAssSexFriends").fadeOut();
-			$("#question_tab2_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHowManyAssSexFriends.fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
 	$("#tab2_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		var questionHasCondomWhenAssSex = $("#question_tab2_tuvanvien1_hasCondomWhenAssSex");
+		var checkboxHasCondomWhenAssSex = $('.tab2_tuvanvien1_hasCondomWhenAssSex');
+
 		if ($(this).val() > 0) {
-			$("#question_tab2_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+			// Clear old data
+			checkboxHasCondomWhenAssSex.attr('checked', false);
+			$.uniform.update();
+
+			questionHasCondomWhenAssSex.fadeIn();
 		} else {
-			$("#question_tab2_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
 	$("#tab3_tuvanvien1_howManySexFriends").on('change', function () {
+		// init
+		var inputHowManyAssSexFriends = $("#tab3_tuvanvien1_howManyAssSexFriends");
+		var questionHowManyAssSexFriends = $("#question_tab3_tuvanvien1_howManyAssSexFriends");
+		var questionHasCondomWhenAssSex = $("#question_tab3_tuvanvien1_hasCondomWhenAssSex");
+
 		if ($(this).val() > 0) {
-			$("#question_tab3_tuvanvien1_howManyAssSexFriends").fadeIn();
+			// Clear old data
+			inputHowManyAssSexFriends.val('');
+			questionHowManyAssSexFriends.fadeIn();
 		} else {
-			$("#question_tab3_tuvanvien1_howManyAssSexFriends").fadeOut();
-			$("#question_tab3_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHowManyAssSexFriends.fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
 	$("#tab3_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		var questionHasCondomWhenAssSex = $("#question_tab3_tuvanvien1_hasCondomWhenAssSex");
+		var checkboxHasCondomWhenAssSex = $('.tab3_tuvanvien1_hasCondomWhenAssSex');
+
 		if ($(this).val() > 0) {
-			$("#question_tab3_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+			// Clear old data
+			checkboxHasCondomWhenAssSex.attr('checked', false);
+			$.uniform.update();
+
+			questionHasCondomWhenAssSex.fadeIn();
 		} else {
-			$("#question_tab3_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
 	$("#tab4_tuvanvien1_howManySexFriends").on('change', function () {
+		// init
+		var inputHowManyAssSexFriends = $("#tab4_tuvanvien1_howManyAssSexFriends");
+		var questionHowManyAssSexFriends = $("#question_tab4_tuvanvien1_howManyAssSexFriends");
+		var questionHasCondomWhenAssSex = $("#question_tab4_tuvanvien1_hasCondomWhenAssSex");
+
 		if ($(this).val() > 0) {
-			$("#question_tab4_tuvanvien1_howManyAssSexFriends").fadeIn();
+			// Clear old data
+			inputHowManyAssSexFriends.val('');
+			questionHowManyAssSexFriends.fadeIn();
 		} else {
-			$("#question_tab4_tuvanvien1_howManyAssSexFriends").fadeOut();
-			$("#question_tab4_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHowManyAssSexFriends.fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
 	$("#tab4_tuvanvien1_howManyAssSexFriends").on('change', function () {
+		var questionHasCondomWhenAssSex = $("#question_tab4_tuvanvien1_hasCondomWhenAssSex");
+		var checkboxHasCondomWhenAssSex = $('.tab4_tuvanvien1_hasCondomWhenAssSex');
+
 		if ($(this).val() > 0) {
-			$("#question_tab4_tuvanvien1_hasCondomWhenAssSex").fadeIn();
+			// Clear old data
+			checkboxHasCondomWhenAssSex.attr('checked', false);
+			$.uniform.update();
+
+			questionHasCondomWhenAssSex.fadeIn();
 		} else {
-			$("#question_tab4_tuvanvien1_hasCondomWhenAssSex").fadeOut();
+			questionHasCondomWhenAssSex.fadeOut();
 		}
 	});
 
