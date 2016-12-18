@@ -68,23 +68,23 @@
 	<div class="widget-box" style="border-left: 0px; border-right: 0px;">
 		<div class="widget-title">
 			<ul class="nav nav-tabs">
-				<li class="{{ empty($user[0]) || empty($user[9]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Tab 1</a></li>
-				<li class="{{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tab 2</a></li>
-				<li class="{{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tab 3</a></li>
-				<li class="{{ !empty($user[13]) && empty($user[15]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tab 4</a></li>
+				<li class="{{ empty($user[0]) || empty($user[7]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Tab 1</a></li>
+				<li class="{{ !empty($user[7]) && empty($user[9]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tab 2</a></li>
+				<li class="{{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tab 3</a></li>
+				<li class="{{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tab 4</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">
-			<div id="tab1" class="tab-pane {{ empty($user[0]) || empty($user[9]) ? "active" : ""  }}">
+			<div id="tab1" class="tab-pane {{ empty($user[0]) || empty($user[7]) ? "active" : ""  }}">
 				@include('user.elements.form_tab1')
 			</div>
-			<div id="tab2" class="tab-pane {{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}">
+			<div id="tab2" class="tab-pane {{ !empty($user[7]) && empty($user[9]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '2'])
 			</div>
-			<div id="tab3" class="tab-pane {{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}">
+			<div id="tab3" class="tab-pane {{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '3'])
 			</div>
-			<div id="tab4" class="tab-pane {{ !empty($user[13]) && empty($user[15]) ? "active" : ""  }}">
+			<div id="tab4" class="tab-pane {{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '4'])
 			</div>
 		</div>

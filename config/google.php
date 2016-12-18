@@ -21,7 +21,7 @@ return [
 	| Ex: https://docs.google.com/spreadsheets/d/11hyCPHN2ryHVsZnmK3zlRmYcdiVSWabuFpsaNHptT2k/edit#gid=0
     |
     */
-	'login_data_sheet' => '11hyCPHN2ryHVsZnmK3zlRmYcdiVSWabuFpsaNHptT2k',
+	'login_data_sheet' => env('GOOGLE_LOGIN_SHEET'),
 
 	/*
     |--------------------------------------------------------------------------
@@ -32,5 +32,5 @@ return [
 	| Ex: https://docs.google.com/spreadsheets/d/1h6vG5o51AtNP1cz8BlmKhW78XDCeadM1A0LfyEV1EQw/edit#gid=0
     |
     */
-	'user_data_sheet' => '1h6vG5o51AtNP1cz8BlmKhW78XDCeadM1A0LfyEV1EQw',
+	'user_data_sheet' => env('GOOGLE_CUSTOMER_SHEET'),
 ];

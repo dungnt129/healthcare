@@ -41,7 +41,7 @@
 					<td>{!! nl2br($user[3]) !!}</td>
 					<td class="text-center">
 						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}" class="btn btn-info btn-xs" title="Edit"><i class="icon-edit"></i></a>
-						<a href="{{ route('user.delete', ['user_id' => $user[0]]) }}" class="btn btn-danger btn-xs" title="Delete"><i class="icon-remove"></i></a>
+						<a data-href="{{ route('user.delete', ['user_id' => $user[0]]) }}" class="btn btn-danger btn-xs btn-confirm-delete" title="Delete" data-toggle="modal"><i class="icon-remove"></i></a>
 					</td>
 				</tr>
 				@endforeach
@@ -49,5 +49,7 @@
 		</table>
 		@endif
 	</div>
+
+	@include('user.elements.confirm_dialog')
 </div>
 @stop

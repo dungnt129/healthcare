@@ -168,5 +168,25 @@ $(document).ready(function(){
 		'autoclose': true,
 		'todayHighlight': true
 	});
+
+	$('.btn-confirm-delete').live('click', function() {
+		// Get delete url
+		var delete_url = $(this).attr('data-href');
+
+		$('#delete_confirm_button').attr('data-href', delete_url);
+
+		// Toggle modal
+		$("#delete_confirm").modal("toggle");
+	});
+
+	$('#delete_confirm_button').live('click', function() {
+		var delete_url = $(this).attr('data-href');
+
+		// Toggle modal
+		$("#delete_confirm").modal("toggle");
+
+		// Redirect to delete customer url
+		window.location.href = delete_url;
+	});
 });
 

@@ -177,7 +177,7 @@ class UserController extends Controller {
 			}
 
 			// Update data
-			$updateRange = 'Sheet1!A' . $row . ':P' . $row;
+			$updateRange = 'Sheet1!A' . $row . ':N' . $row;
 
 			$values = [
 				[
@@ -188,16 +188,24 @@ class UserController extends Controller {
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y H:i:s', time()),
-					'6' => "", //$inputs["kham_tim"],
-					'7' => "", //$inputs["kham_mat"],
-					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : '',
-					'9' => ($lockDay1) ? 1 : 0,
-					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : '',
-					'11' => ($lockDay2) ? 1 : 0,
-					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : '',
-					'13' => ($lockDay3) ? 1 : 0,
-					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : '',
-					'15' => ($lockDay4) ? 1 : 0,
+//					'6' => "", //$inputs["kham_tim"],
+//					'7' => "", //$inputs["kham_mat"],
+//					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : '',
+//					'9' => ($lockDay1) ? 1 : 0,
+//					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : '',
+//					'11' => ($lockDay2) ? 1 : 0,
+//					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : '',
+//					'13' => ($lockDay3) ? 1 : 0,
+//					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : '',
+//					'15' => ($lockDay4) ? 1 : 0,
+					'6' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : '',
+					'7' => ($lockDay1) ? 1 : 0,
+					'8' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : '',
+					'9' => ($lockDay2) ? 1 : 0,
+					'10' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : '',
+					'11' => ($lockDay3) ? 1 : 0,
+					'12' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : '',
+					'13' => ($lockDay4) ? 1 : 0,
 				]
 			];
 
@@ -235,16 +243,24 @@ class UserController extends Controller {
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y H:i:s', time()),
-					'6' => "", //$inputs["kham_tim"],
-					'7' => "", //$inputs["kham_mat"],
-					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
-					'9' => ($lockDay1) ? 1 : 0,
-					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "",
-					'11' => ($lockDay2) ? 1 : 0,
-					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : "",
-					'13' => ($lockDay3) ? 1 : 0,
-					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : "",
-					'15' => ($lockDay4) ? 1 : 0,
+//					'6' => "", //$inputs["kham_tim"],
+//					'7' => "", //$inputs["kham_mat"],
+//					'8' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
+//					'9' => ($lockDay1) ? 1 : 0,
+//					'10' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "",
+//					'11' => ($lockDay2) ? 1 : 0,
+//					'12' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : "",
+//					'13' => ($lockDay3) ? 1 : 0,
+//					'14' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : "",
+//					'15' => ($lockDay4) ? 1 : 0,
+					'6' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
+					'7' => ($lockDay1) ? 1 : 0,
+					'8' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "",
+					'9' => ($lockDay2) ? 1 : 0,
+					'10' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : "",
+					'11' => ($lockDay3) ? 1 : 0,
+					'12' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : "",
+					'13' => ($lockDay4) ? 1 : 0,
 				]
 			];
 
@@ -320,8 +336,6 @@ class UserController extends Controller {
 			"", //Phone
 			"", //Last edited by
 			"", //Last edited time
-			"", //Khám tim
-			"", //Khám mắt
 			[ // Tab 1
 				"tuvanvien1" => [
 					"tentuvanvien" => "",

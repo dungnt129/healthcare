@@ -45,7 +45,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:P');
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:N');
 
 		if(empty($users)) return $user;
 
@@ -56,20 +56,20 @@ class UserHelper {
 			// Compare with user id
 			if($data[0] == $userId) {
 				// Decode json data day 1
+				if(!empty($data[6])) {
+					$data[6] = json_decode($data[6], true);
+				}
+				// Decode json data day 2
 				if(!empty($data[8])) {
 					$data[8] = json_decode($data[8], true);
 				}
-				// Decode json data day 2
+				// Decode json data day 3
 				if(!empty($data[10])) {
 					$data[10] = json_decode($data[10], true);
 				}
-				// Decode json data day 3
+				// Decode json data day 4
 				if(!empty($data[12])) {
 					$data[12] = json_decode($data[12], true);
-				}
-				// Decode json data day 4
-				if(!empty($data[14])) {
-					$data[14] = json_decode($data[14], true);
 				}
 
 				return $data;
@@ -110,7 +110,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get next user id in user sheet data
-		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!T2');
+		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!R2');
 
 		if(empty($data[0][0])) return $nextUserId;
 
