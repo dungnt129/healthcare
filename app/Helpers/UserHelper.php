@@ -225,4 +225,12 @@ class UserHelper {
 
 		return true;
 	}
+
+	public static function checkExistLockTabs($user) {
+		$result = false;
+
+		if(empty($user)) return $result;
+
+		return (!empty($user[7]) || !empty($user[9]) || !empty($user[11]) || !empty($user[13]));
+	}
 }

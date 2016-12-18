@@ -1,3 +1,10 @@
+@if ( UserHelper::checkExistLockTabs($user) && $loginUser[3] != 1 )
+<div class="alert alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+	<h4 class="alert-heading">Warning</h4>
+	Complete tabs cannot be edited. If you want to edit, please contact with administrator.
+</div>
+@endif
+
 @if ( session()->has('success_message') )
 <div class="alert alert-success alert-block">
 	<a class="close" data-dismiss="alert" href="#">×</a>
