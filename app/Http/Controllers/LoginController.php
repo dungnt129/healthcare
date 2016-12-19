@@ -43,9 +43,11 @@ class LoginController extends Controller
     |
     */
     public function postLogin(Request $request) {
+		// Get submit inputs
+		$inputs = $request->all();
 
 		// Validate
-		$validator = Validator::make($request->all(), [
+		$validator = Validator::make($inputs, [
             'username' => 'required',
 			'password' => 'required'
         ]);
@@ -57,7 +59,7 @@ class LoginController extends Controller
         }
 
 		// Init
-		$googleSheetHelper = new GoogleSheet();
+		$googleSheetHelper = GoogleSheet::getInstance();
 		$loginSheetId = Config::get('google.login_data_sheet');
 
 		// Get login user data from google sheet
@@ -70,8 +72,8 @@ class LoginController extends Controller
                         ->withInput();
 		}
 
-		$username = $request->input('username');
-		$password = $request->input('password');
+		$username = $inputs['username'];
+		$password = $inputs['password'];
 		// Check login information
 		foreach($data as $key => $user) {
 			// Skip header row
