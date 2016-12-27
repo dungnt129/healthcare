@@ -36,7 +36,11 @@
 				@foreach($users as $key => $user)
 				<tr>
 					<td>{!! nl2br($user[0]) !!}</td>
-					<td>{!! nl2br($user[1]) !!}</td>
+					<td>
+						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}">
+							{!! nl2br($user[1]) !!}
+						</a>
+					</td>
 					<td>{!! nl2br($user[2]) !!}</td>
 					<td>{!! nl2br($user[3]) !!}</td>
 					<td class="text-center">
