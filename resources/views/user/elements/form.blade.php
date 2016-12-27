@@ -75,10 +75,10 @@
 	<div class="widget-box" style="border-left: 0px; border-right: 0px;">
 		<div class="widget-title">
 			<ul class="nav nav-tabs">
-				<li class="{{ empty($user[0]) || empty($user[7]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Tab 1</a></li>
-				<li class="{{ !empty($user[7]) && empty($user[9]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tab 2</a></li>
-				<li class="{{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tab 3</a></li>
-				<li class="{{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tab 4</a></li>
+				<li class="{{ empty($user[0]) || empty($user[7]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">First Visit</a></li>
+				<li class="{{ !empty($user[7]) && empty($user[9]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Second Visit</a></li>
+				<li class="{{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Third Visit</a></li>
+				<li class="{{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Fourth Visit</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">

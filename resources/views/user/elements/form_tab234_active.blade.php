@@ -183,6 +183,9 @@
 			</div>
 		</div>
 	</div>
+	<div class="form-actions">
+		<input type="submit" value="Save" class="btn btn-success">
+	</div>
 </div>
 
 <div class="widget-box">
@@ -258,6 +261,9 @@
 				{!! Form::textarea ("tab[{$tab}][bacsi][otherComment]", !empty($user[$index]["bacsi"]["otherComment"]) ? $user[$index]["bacsi"]["otherComment"] : "", ["id" => "tab[{$tab}][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5"]) !!}
 			</div>
 		</div>
+	</div>
+	<div class="form-actions">
+		<input type="submit" value="Save" class="btn btn-success">
 	</div>
 </div>
 

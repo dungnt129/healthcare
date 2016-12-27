@@ -220,6 +220,9 @@
 			</div>
 		</div>
 	</div>
+	<div class="form-actions">
+		<input type="submit" value="Save" class="btn btn-success">
+	</div>
 </div>
 
 <div class="widget-box">
@@ -313,6 +316,9 @@
 				{!! Form::textarea ("tab[1][bacsi][otherComment]", $user[6]["bacsi"]["otherComment"], ["id" => "tab[1][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5"]) !!}
 			</div>
 		</div>
+	</div>
+	<div class="form-actions">
+		<input type="submit" value="Save" class="btn btn-success">
 	</div>
 </div>
 
