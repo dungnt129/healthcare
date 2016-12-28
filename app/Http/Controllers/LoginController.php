@@ -85,14 +85,7 @@ class LoginController extends Controller
 				// Store user data into session
 				$request->session()->put('user', $user);
 
-				// If user is admin
-//				if($user[3] == 1) {
-					return redirect()->intended(route('user.list'));
-//				} else {
-//					// Normal, go to user detail page
-//					return redirect()->route('user.detail', ['user_id' => $user[0]]);
-//				}
-
+				return redirect()->intended(route('user.list'));
 			}
 		}
 
