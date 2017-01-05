@@ -59,6 +59,9 @@
 				{!! Form::text("phone", $user[3], ["id" => "phone", "required" => ""]) !!}
 			</div>
 		</div>
+		<div class="form-actions">
+			<input value="Save" class="btn btn-success" type="submit">
+		</div>
 	</div>
 
 	@if(!empty($user[0]))

@@ -1,6 +1,13 @@
 @extends('layouts.default')
 
 @section('content')
+<div class="row-fluid">
+	<a href="{{ route('user.create') }}" class="btn btn-info btn-xs" title="Edit" style="float: right;">
+		<i class="icon-plus"></i>
+		Add new user
+	</a>
+</div>
+
 @if ( session()->has('success_message') )
 <div class="alert alert-success alert-block">
 	<a class="close" data-dismiss="alert" href="#">×</a>
