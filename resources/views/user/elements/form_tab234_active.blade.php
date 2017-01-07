@@ -137,11 +137,11 @@
                 {!! Form::text("tab[{$tab}][tuvanvien1][howManySexFriends]", isset($user[$index]["tuvanvien1"]["howManySexFriends"]) ? $user[$index]["tuvanvien1"]["howManySexFriends"] : "", ["id" => "tab{$tab}_tuvanvien1_howManySexFriends"]) !!}
 			</div>
 			<div class="controls-custom {{ empty($user[$index]["tuvanvien1"]["howManySexFriends"]) ? "sub-question" : "" }}" id="question_tab{{$tab}}_tuvanvien1_howManyAssSexFriends">
-				<label class="control-sublabel-custom">b. Câu hỏi 2 (nếu Q1 > 0): Trong số đó, bạn quan hệ tình dục đường hậu môn hay âm đạo giả với bao nhiêu người trong 3 tháng qua?</label>
+				<label class="control-sublabel-custom">b. Câu hỏi 2: Trong số đó, bạn quan hệ tình dục đường hậu môn hay âm đạo giả với bao nhiêu người trong 3 tháng qua?</label>
                 {!! Form::text("tab[{$tab}][tuvanvien1][howManyAssSexFriends]", isset($user[$index]["tuvanvien1"]["howManyAssSexFriends"]) ? $user[$index]["tuvanvien1"]["howManyAssSexFriends"] : "", ["id" => "tab{$tab}_tuvanvien1_howManyAssSexFriends"]) !!}
 			</div>
 			<div class="controls-custom {{ empty($user[$index]["tuvanvien1"]["howManyAssSexFriends"]) ? "sub-question" : "" }}" id="question_tab{{$tab}}_tuvanvien1_hasCondomWhenAssSex">
-				<label class="control-sublabel-custom">c. Câu hỏi 3 (nếu Q2 > 0): Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn hay âm đạo giả với bạn tình nam không?</label>
+				<label class="control-sublabel-custom">c. Câu hỏi 3: Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn hay âm đạo giả với bạn tình nam không?</label>
                 <label>
 					{!! Form::checkbox("tab[{$tab}][tuvanvien1][hasCondomWhenAssSex]", 1, (!empty($user[$index]["tuvanvien1"]["hasCondomWhenAssSex"]) && $user[$index]["tuvanvien1"]["hasCondomWhenAssSex"] == 1) ? true : null, ["class" => "tab{$tab}_tuvanvien1_hasCondomWhenAssSex"]) !!}
 					Có</label>

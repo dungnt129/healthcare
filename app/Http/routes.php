@@ -15,10 +15,10 @@ Route::get('/', function () {
     return redirect()->route('user.list');
 });
 
-Route::get('test', [
-	'as' => 'test',
-	'uses' => 'TestController@index'
-]);
+//Route::get('test', [
+//	'as' => 'test',
+//	'uses' => 'TestController@index'
+//]);
 
 /* Login route */
 Route::get('login', [
