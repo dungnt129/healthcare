@@ -33,12 +33,7 @@ class UserController extends Controller {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:D');
-
-		// Skip data row header
-		if (!empty($users)) {
-			array_shift($users);
-		}
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:D');
 
 		return view('user.index', [
 			'users' => $users,
@@ -165,6 +160,16 @@ class UserController extends Controller {
 		$lockDay3 = UserHelper::checkInputCompleteTab234($inputs, 3);
 		$lockDay4 = UserHelper::checkInputCompleteTab234($inputs, 4);
 
+		$dataTab1 = !empty($inputs['tab'][1]) ? $inputs['tab'][1] : "";
+		$dataTab2 = !empty($inputs['tab'][2]) ? $inputs['tab'][2] : "";
+		$dataTab3 = !empty($inputs['tab'][3]) ? $inputs['tab'][3] : "";
+		$dataTab4 = !empty($inputs['tab'][4]) ? $inputs['tab'][4] : "";
+
+		$dataTab1Encode = !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "";
+		$dataTab2Encode = !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "";
+		$dataTab3Encode = !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : "";
+		$dataTab4Encode = !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : "";
+
 		// Update
 		if (!empty($userId)) {
 			// Get updating row
@@ -177,7 +182,7 @@ class UserController extends Controller {
 			}
 
 			// Update data
-			$updateRange = 'Sheet1!A' . $row . ':N' . $row;
+			$updateRange = 'Sheet1!A' . $row . ':BJ' . $row;
 
 			$values = [
 				[
@@ -188,14 +193,62 @@ class UserController extends Controller {
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y H:i:s', time()),
-					'6' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : '',
+					'6' => $dataTab1Encode,
 					'7' => ($lockDay1) ? 1 : 0,
-					'8' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : '',
+					'8' => $dataTab2Encode,
 					'9' => ($lockDay2) ? 1 : 0,
-					'10' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : '',
+					'10' => $dataTab3Encode,
 					'11' => ($lockDay3) ? 1 : 0,
-					'12' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : '',
+					'12' => $dataTab4Encode,
 					'13' => ($lockDay4) ? 1 : 0,
+					'14' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "tentuvanvien"),
+					'15' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "date"),
+					'16' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "accept"),
+					'17' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "birthyear"),
+					'18' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "sex"),
+					'19' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "isVietnamese"),
+					'20' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasHIVfriend"),
+					'21' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasSexForCash"),
+					'22' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasGiangMaiInLastYear"),
+					'23' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasLauInLastYear"),
+					'24' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasChlamydiaInLastYear"),
+					'25' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howManySexFriends"),
+					'26' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howManyAssSexFriends"),
+					'27' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasCondomWhenAssSex"),
+					'28' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasAlwaysUseCondomWhenAssSex"),
+					'29' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasCocainInLastYear"),
+					'30' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasAnotherCocainLastYear"),
+					'31' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasPaidForPrEP"),
+					'32' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "email"),
+					'33' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "mobile"),
+					'34' => (!empty(UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howDoYouKnowPrep"))) ? UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howDoYouKnowPrep") : UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howDoYouKnowPrepText"),
+					'35' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "otherComment"),
+					'36' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "tenbacsi"),
+					'37' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "date"),
+					'38' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "fastHIVresult"),
+					'39' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "fastHIVresultdate"),
+					'40' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "confirmHIVresult"),
+					'41' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "confirmHIVresultdate"),
+					'42' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "viemGanBresult"),
+					'43' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "viemGanBresultdate"),
+					'44' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "sangLocViemGanBresult"),
+					'45' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "sangLocViemGanBresultdate"),
+					'46' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHBsresult"),
+					'47' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHBsresultdate"),
+					'48' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHCVresult"),
+					'49' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHCVresultdate"),
+					'50' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHAVresult"),
+					'51' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHAVresultdate"),
+					'52' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "giangmaiResult"),
+					'53' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "giangmaiResultDate"),
+					'54' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "chucnangthanResult"),
+					'55' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "chucnangthanResultDate"),
+					'56' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "otherComment"),
+					'57' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "tentuvanvien"),
+					'58' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "date"),
+					'59' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "accept_prep"),
+					'60' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "maBenhNhan"),
+					'61' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "otherComment"),
 				]
 			];
 
@@ -223,7 +276,7 @@ class UserController extends Controller {
 			}
 
 			// Insert data
-			$updateRange = 'Sheet1';
+			$updateRange = 'Sheet1!A:BJ';
 			$values = [
 				[
 					// Cell values ...
@@ -233,14 +286,62 @@ class UserController extends Controller {
 					'3' => $inputs["phone"],
 					'4' => $currentUser['1'],
 					'5' => date('d/m/Y H:i:s', time()),
-					'6' => !empty($inputs['tab'][1]) ? json_encode($inputs['tab'][1]) : "",
+					'6' => $dataTab1Encode,
 					'7' => ($lockDay1) ? 1 : 0,
-					'8' => !empty($inputs['tab'][2]) ? json_encode($inputs['tab'][2]) : "",
+					'8' => $dataTab2Encode,
 					'9' => ($lockDay2) ? 1 : 0,
-					'10' => !empty($inputs['tab'][3]) ? json_encode($inputs['tab'][3]) : "",
+					'10' => $dataTab3Encode,
 					'11' => ($lockDay3) ? 1 : 0,
-					'12' => !empty($inputs['tab'][4]) ? json_encode($inputs['tab'][4]) : "",
+					'12' => $dataTab4Encode,
 					'13' => ($lockDay4) ? 1 : 0,
+					'14' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "tentuvanvien"),
+					'15' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "date"),
+					'16' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "accept"),
+					'17' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "birthyear"),
+					'18' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "sex"),
+					'19' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "isVietnamese"),
+					'20' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasHIVfriend"),
+					'21' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasSexForCash"),
+					'22' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasGiangMaiInLastYear"),
+					'23' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasLauInLastYear"),
+					'24' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasChlamydiaInLastYear"),
+					'25' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howManySexFriends"),
+					'26' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howManyAssSexFriends"),
+					'27' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasCondomWhenAssSex"),
+					'28' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasAlwaysUseCondomWhenAssSex"),
+					'29' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasCocainInLastYear"),
+					'30' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasAnotherCocainLastYear"),
+					'31' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "hasPaidForPrEP"),
+					'32' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "email"),
+					'33' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "mobile"),
+					'34' => (!empty(UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howDoYouKnowPrep"))) ? UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howDoYouKnowPrep") : UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "howDoYouKnowPrepText"),
+					'35' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien1", "otherComment"),
+					'36' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "tenbacsi"),
+					'37' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "date"),
+					'38' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "fastHIVresult"),
+					'39' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "fastHIVresultdate"),
+					'40' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "confirmHIVresult"),
+					'41' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "confirmHIVresultdate"),
+					'42' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "viemGanBresult"),
+					'43' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "viemGanBresultdate"),
+					'44' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "sangLocViemGanBresult"),
+					'45' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "sangLocViemGanBresultdate"),
+					'46' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHBsresult"),
+					'47' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHBsresultdate"),
+					'48' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHCVresult"),
+					'49' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHCVresultdate"),
+					'50' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHAVresult"),
+					'51' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "antiHAVresultdate"),
+					'52' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "giangmaiResult"),
+					'53' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "giangmaiResultDate"),
+					'54' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "chucnangthanResult"),
+					'55' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "chucnangthanResultDate"),
+					'56' => UserHelper::getShowDataDay1($dataTab1, "bacsi", "otherComment"),
+					'57' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "tentuvanvien"),
+					'58' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "date"),
+					'59' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "accept_prep"),
+					'60' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "maBenhNhan"),
+					'61' => UserHelper::getShowDataDay1($dataTab1, "tuvanvien3", "otherComment"),
 				]
 			];
 
@@ -276,6 +377,7 @@ class UserController extends Controller {
 		// Init
 		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
+		$headerRowNums = Config::get('google.user_data_sheet_header_rows_nums');
 		$currentUser = session('user');
 
 		// Get list user data from google sheet
@@ -284,7 +386,7 @@ class UserController extends Controller {
 		// Check user exists
 		$row = 0;
 		foreach ($users as $key => $user) {
-			if ($user[0] == $user_id) {
+			if (!empty($user[0]) && $user[0] == $user_id) {
 				$row = $key;
 			}
 		}

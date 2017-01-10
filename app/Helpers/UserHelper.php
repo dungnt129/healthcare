@@ -15,6 +15,77 @@ use App\Helpers\GoogleSheet;
  */
 class UserHelper {
 
+	static $mapOptionDay1 = [
+		"tuvanvien1" => [
+			"accept" => [
+				1 => "Có"
+			],
+			"sex" => [
+				1 => "Nam",
+				2 => "Chuyển giới"
+			],
+			"isVietnamese" => [
+				1 => "Có",
+				2 => "Không"
+			],
+			"hasHIVfriend" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không biết",
+				4 => "Không phù hợp"
+			],
+			"hasSexForCash" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			],
+			"hasGiangMaiInLastYear" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			],
+			"hasLauInLastYear" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			],
+			"hasChlamydiaInLastYear" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			],
+			"hasCondomWhenAssSex" => [
+				1 => "Có",
+				2 => "Không"
+			],
+			"hasAlwaysUseCondomWhenAssSex" => [
+				1 => "Luôn luôn",
+				2 => "Thường xuyên",
+				3 => "Không bao giờ"
+			],
+			"hasCocainInLastYear" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			],
+			"hasPaidForPrEP" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không biết"
+			],
+			"howDoYouKnowPrep" => [
+				1 => "Nhân viên xét nghiệm không chuyên",
+				2 => "Tự đến (có thông tin qua chiến dịch và website của CARMAH)",
+				3 => "CBO giới thiệu đến"
+			]
+		],
+		"tuvanvien3" => [
+			"accept_prep" => [
+				1 => "Có"
+			]
+		]
+	];
+
 	/**
 	 * Get Login User Info
 	 *
@@ -45,12 +116,9 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:N');
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:N');
 
 		if(empty($users)) return $user;
-
-		// Skip data row header
-		array_shift($users);
 
 		foreach($users as $data) {
 			// Compare with user id
@@ -79,29 +147,6 @@ class UserHelper {
 		return $user;
 	}
 
-	public static function getLastUserId() {
-		$lastUserId = 0;
-
-		// Init
-		$googleSheetHelper = GoogleSheet::getInstance();
-		$userSheetId = Config::get('google.user_data_sheet');
-
-		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A:A');
-
-		// Skip data row header
-		array_shift($users);
-
-		foreach($users as $data) {
-			// Compare with user id
-			if($data[0] > $lastUserId && is_numeric($data[0])) {
-				$lastUserId = $data[0];
-			}
-		}
-
-		return $lastUserId;
-	}
-
 	public static function getNextUserId() {
 		$nextUserId = 1;
 
@@ -110,7 +155,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get next user id in user sheet data
-		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!R2');
+		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!BS2');
 
 		if(empty($data[0][0])) return $nextUserId;
 
@@ -130,7 +175,7 @@ class UserHelper {
 		// Calculate update row
 		foreach($users as $key => $data) {
 			// Compare with user id
-			if($data[0] == $userId && is_numeric($data[0])) {
+			if(!empty($data[0]) && $data[0] == $userId) {
 				$updateRow = $key + 1;
 			}
 		}
@@ -232,5 +277,17 @@ class UserHelper {
 		if(empty($user)) return $result;
 
 		return (!empty($user[7]) || !empty($user[9]) || !empty($user[11]) || !empty($user[13]));
+	}
+
+	public static function getShowDataDay1($data, $group, $key) {
+		$value = (isset($data[$group][$key])) ? $data[$group][$key] : "";
+
+		if(empty($data)) return $value;
+
+		if(isset(self::$mapOptionDay1[$group][$key][$value])) {
+			return self::$mapOptionDay1[$group][$key][$value];
+		}
+
+		return $value;
 	}
 }
