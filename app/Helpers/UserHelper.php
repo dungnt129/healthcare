@@ -86,6 +86,35 @@ class UserHelper {
 		]
 	];
 
+	static $mapOptionDay234 = [
+		"tuvanvien1" => [
+			"hasCondomWhenAssSex" => [
+				1 => "Có",
+				2 => "Không"
+			],
+			"hasAlwaysUseCondomWhenAssSex" => [
+				1 => "Luôn luôn",
+				2 => "Thường xuyên",
+				3 => "Không bao giờ"
+			],
+			"hasCocainInLastYear" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			]
+		],
+		"tuvanvien3" => [
+			"hasHIV" => [
+				1 => "Có",
+				2 => "Không"
+			],
+			"otherReason" => [
+				1 => "Tác dụng phụ của thuốc",
+				2 => "Thay đổi nguy cơ"
+			]
+		]
+	];
+
 	/**
 	 * Get Login User Info
 	 *
@@ -155,7 +184,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get next user id in user sheet data
-		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!BS2');
+		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!GA2');
 
 		if(empty($data[0][0])) return $nextUserId;
 
@@ -286,6 +315,18 @@ class UserHelper {
 
 		if(isset(self::$mapOptionDay1[$group][$key][$value])) {
 			return self::$mapOptionDay1[$group][$key][$value];
+		}
+
+		return $value;
+	}
+
+	public static function getShowDataDay234($data, $group, $key) {
+		$value = (isset($data[$group][$key])) ? $data[$group][$key] : "";
+
+		if(empty($data)) return $value;
+
+		if(isset(self::$mapOptionDay234[$group][$key][$value])) {
+			return self::$mapOptionDay234[$group][$key][$value];
 		}
 
 		return $value;
