@@ -32,5 +32,5 @@ return [
 	| Ex: https://docs.google.com/spreadsheets/d/1h6vG5o51AtNP1cz8BlmKhW78XDCeadM1A0LfyEV1EQw/edit#gid=0
     |
     */
-	'user_data_sheet' => env('GOOGLE_CUSTOMER_SHEET'),
+	'user_data_sheet' => env('GOOGLE_CUSTOMER_SHEET')
 ];
