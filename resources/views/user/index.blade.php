@@ -11,7 +11,7 @@
 @if ( session()->has('success_message') )
 <div class="alert alert-success alert-block">
 	<a class="close" data-dismiss="alert" href="#">×</a>
-	<h4 class="alert-heading">Success!</h4>
+	<h4 class="alert-heading">Thành công!</h4>
 	{{ session()->get('success_message') }}
 </div>
 @endif
@@ -19,7 +19,7 @@
 @if ( session()->has('fail_message') )
 <div class="alert alert-error alert-block">
 	<a class="close" data-dismiss="alert" href="#">×</a>
-	<h4 class="alert-heading">Error!</h4>
+	<h4 class="alert-heading">Có lỗi xảy ra!</h4>
 	{{ session()->get('fail_message') }}
 </div>
 @endif
@@ -43,14 +43,14 @@
 			<tbody>
 				@foreach($users as $key => $user)
 				<tr>
-					<td>{!! nl2br($user[0]) !!}</td>
+					<td>{!! !empty($user[0]) ? nl2br($user[0]) : '' !!}</td>
 					<td>
 						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}">
-							{!! nl2br($user[1]) !!}
+							{!! !empty($user[1]) ? nl2br($user[1]) : '' !!}
 						</a>
 					</td>
-					<td>{!! nl2br($user[2]) !!}</td>
-					<td>{!! nl2br($user[3]) !!}</td>
+					<td>{!! !empty($user[2]) ? nl2br($user[2]) : '' !!}</td>
+					<td>{!! !empty($user[3]) ? nl2br($user[3]) : '' !!}</td>
 					<td>{!! $user[4] or ''  !!}</td>
 					<td class="text-center">
 						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}" class="btn btn-info btn-xs" title="Edit"><i class="icon-edit"></i></a>

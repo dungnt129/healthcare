@@ -261,16 +261,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">3. Kết quả xét nghiệm Viêm gan B & C</label>
-			<div class="controls-custom">
-				<span>Ngày xét nghiệm</span>
-				{!! Form::text("tab[1][bacsi][viemGanBresultdate]", $user[11]["bacsi"]["viemGanBresultdate"], ["id" => "tab[1][bacsi][viemGanBresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::select("tab[1][bacsi][viemGanBresult]", UserHelper::$optionResult, $user[11]["bacsi"]["viemGanBresult"], ["id" => "tab[1][bacsi][viemGanBresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
-				{!! Form::hidden("tab[1][bacsi][viemGanBresult]", !empty($user[11]["bacsi"]["viemGanBresult"]) ? $user[11]["bacsi"]["viemGanBresult"] : "" ) !!}
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label-custom">4. Kết quả xét nghiệm HBsAg (Sàng lọc viêm gan B)</label>
+			<label class="control-label-custom">3. Kết quả xét nghiệm HBsAg (Sàng lọc viêm gan B)</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][sangLocViemGanBresultdate]", $user[11]["bacsi"]["sangLocViemGanBresultdate"], ["id" => "tab[1][bacsi][sangLocViemGanBresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
@@ -279,7 +270,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">5. Kết quả xét nghiệm anti-HBs (Kháng thể viêm gan B)</label>
+			<label class="control-label-custom">4. Kết quả xét nghiệm anti-HBs (Kháng thể viêm gan B)</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHBsresultdate]", $user[11]["bacsi"]["antiHBsresultdate"], ["id" => "tab[1][bacsi][antiHBsresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
@@ -288,7 +279,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">6. Kết quả xét nghiệm Anti-HCV (viêm gan C)</label>
+			<label class="control-label-custom">5. Kết quả xét nghiệm Anti-HCV (viêm gan C)</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHCVresultdate]", $user[11]["bacsi"]["antiHCVresultdate"], ["id" => "tab[1][bacsi][antiHCVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
@@ -297,7 +288,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">7. Kết quả xét nghiệm Anti-HAV (viêm gan A)</label>
+			<label class="control-label-custom">6. Kết quả xét nghiệm Anti-HAV (viêm gan A)</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHAVresultdate]", $user[11]["bacsi"]["antiHAVresultdate"], ["id" => "tab[1][bacsi][antiHAVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
@@ -306,7 +297,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">8. Kết quả xét nghiệm VDRL/RPR (giang mai)</label>
+			<label class="control-label-custom">7. Kết quả xét nghiệm VDRL/RPR (giang mai)</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][giangmaiResultDate]", $user[11]["bacsi"]["giangmaiResultDate"], ["id" => "tab[1][bacsi][giangmaiResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
@@ -315,7 +306,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">9. Chức năng thận (độ thanh thải creatinine > 60ml/min)</label>
+			<label class="control-label-custom">8. Chức năng thận (độ thanh thải creatinine > 60ml/min)</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][chucnangthanResultDate]", $user[11]["bacsi"]["chucnangthanResultDate"], ["id" => "tab[1][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
@@ -324,7 +315,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">10. Các nhận xét khác</label>
+			<label class="control-label-custom">9. Tiền sử bệnh</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[1][bacsi][otherComment]", $user[11]["bacsi"]["otherComment"], ["id" => "tab[1][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>

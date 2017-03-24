@@ -189,7 +189,7 @@ class UserController extends Controller {
 
 			if (empty($row)) {
 				return redirect()->route('user.update', ['user_id' => $userId])
-								->with('fail_message', 'System error.User information cannot be saved.')
+								->with('fail_message', 'Lỗi hệ thống.Thông tin khách hàng chưa được lưu.')
 								->withInput();
 			}
 
@@ -968,7 +968,7 @@ class UserController extends Controller {
 			// Error
 			if (!$result) {
 				return redirect()->route('user.create')
-								->with('fail_message', 'System error.User information cannot be saved.')
+								->with('fail_message', 'Lỗi hệ thống.Thông tin khách hàng chưa được lưu.')
 								->withInput();
 			}
 			// Log
@@ -979,7 +979,7 @@ class UserController extends Controller {
 		}
 
 		// Success
-		return redirect()->route('user.update', ['user_id' => $userId])->with('success_message', 'User information has been saved.');
+		return redirect()->route('user.update', ['user_id' => $userId])->with('success_message', 'Thông tin khách hàng đã được lưu.');
 	}
 
 	/*
@@ -1015,17 +1015,17 @@ class UserController extends Controller {
 
 			// Error
 			if (!$result) {
-				return redirect()->route('user.list')->with('fail_message', 'System error.User cannot be deleted.');
+				return redirect()->route('user.list')->with('fail_message', 'Lỗi hệ thống.Không thể xóa được khách hàng.');
 			}
 		} else {
-			return redirect()->route('user.list')->with('fail_message', 'User id is not exist.');
+			return redirect()->route('user.list')->with('fail_message', 'Khách hàng vừa chọn không tồn tại.');
 		}
 
 		// Log
 		Log::info('Delete Customer', ["Customer_Id" => $user_id, "Deleted_By" => $currentUser]);
 
 		// Success
-		return redirect()->route('user.list')->with('success_message', 'User has been deleted.');
+		return redirect()->route('user.list')->with('success_message', 'Khách hàng đã bị xóa.');
 	}
 
 	private function _initNewUser() {

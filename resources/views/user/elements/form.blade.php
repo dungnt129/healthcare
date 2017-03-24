@@ -1,14 +1,14 @@
 @if ( UserHelper::checkExistLockTabs($user) && $loginUser[3] != 1 )
 <div class="alert alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
-	<h4 class="alert-heading">Warning</h4>
-	Complete tabs cannot be edited. If you want to edit, please contact with administrator.
+	<h4 class="alert-heading">Lưu ý</h4>
+	Form đã điền không thể chỉnh sửa. Nếu bạn muốn sửa, xin hãy liên hệ quản lý.
 </div>
 @endif
 
 @if ( session()->has('success_message') )
 <div class="alert alert-success alert-block">
 	<a class="close" data-dismiss="alert" href="#">×</a>
-	<h4 class="alert-heading">Success!</h4>
+	<h4 class="alert-heading">Thành công!</h4>
 	{{ session()->get('success_message') }}
 </div>
 @endif
@@ -16,7 +16,7 @@
 @if ( session()->has('fail_message') )
 <div class="alert alert-error alert-block">
 	<a class="close" data-dismiss="alert" href="#">×</a>
-	<h4 class="alert-heading">Error!</h4>
+	<h4 class="alert-heading">Có lỗi xảy ra!</h4>
 	{{ session()->get('fail_message') }}
 </div>
 @endif
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">Image URL</label>
+			<label class="control-label">Link ảnh khách hàng</label>
 			<div class="controls">
 				{!! Form::url("image_url", $user[8], ["id" => "image_url"]) !!}
 			</div>
@@ -98,7 +98,7 @@
 		@if(!empty($user[8]))
 		<div class="text-center square">
 			<img src="{{ $user[8] }}" alt="User Image"/>
-			<p>User Image.</p>
+			<p>Ảnh khách hàng.</p>
 		</div>
 		@endif
 	</div>
@@ -108,15 +108,15 @@
 	<div class="widget-box" style="border-left: 0px; border-right: 0px;">
 		<div class="widget-title">
 			<ul class="nav nav-tabs">
-				<li class="{{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">1st Visit</a></li>
-				<li class="{{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">2nd Visit</a></li>
-				<li class="{{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">3rd Visit</a></li>
-				<li class="{{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">4th Visit</a></li>
-				<li class="{{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">5th Visit</a></li>
-				<li class="{{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">6th Visit</a></li>
-				<li class="{{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">7th Visit</a></li>
-				<li class="{{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">8th Visit</a></li>
-				<li class="{{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">9th Visit</a></li>
+				<li class="{{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Cuộc hẹn đầu tiên</a></li>
+				<li class="{{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tháng thứ 1</a></li>
+				<li class="{{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tháng thứ 3</a></li>
+				<li class="{{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tháng thứ 6</a></li>
+				<li class="{{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">Tháng thứ 9</a></li>
+				<li class="{{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">Tháng thứ 12</a></li>
+				<li class="{{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">Tháng thứ 15</a></li>
+				<li class="{{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">Tháng thứ 18</a></li>
+				<li class="{{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">Các cuộc hẹn khác</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">
