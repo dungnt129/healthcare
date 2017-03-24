@@ -1,5 +1,5 @@
 <?php
-$isLock = (!empty($user[7]) && $loginUser[3] != 1);
+$isLock = (!empty($user[12]) && $loginUser[3] != 1);
 ?>
 
 @if(!$isLock)

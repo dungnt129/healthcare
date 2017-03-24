@@ -2,13 +2,13 @@
 $index = 0;
 switch($tab) {
 	case 2:
-		$index = 8;
+		$index = 13;
 		break;
 	case 3:
-		$index = 10;
+		$index = 15;
 		break;
 	case 4:
-		$index = 12;
+		$index = 17;
 		break;
 	default:
 		break;

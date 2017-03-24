@@ -44,19 +44,43 @@
 		<div class="control-group">
 			<label class="control-label">Name</label>
 			<div class="controls">
-				{!! Form::text("name", $user[1], ["id" => "name", "required" => ""]) !!}
+				{!! Form::text("name", $user[1], ["id" => "name"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Address</label>
 			<div class="controls">
-				{!! Form::text("address", $user[2], ["id" => "address", "required" => ""]) !!}
+				{!! Form::text("address", $user[2], ["id" => "address"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Phone</label>
 			<div class="controls">
-				{!! Form::text("phone", $user[3], ["id" => "phone", "required" => ""]) !!}
+				{!! Form::text("phone", $user[3], ["id" => "phone"]) !!}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Email</label>
+			<div class="controls">
+				{!! Form::text("email", $user[5], ["id" => "email"]) !!}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Zalo</label>
+			<div class="controls">
+				{!! Form::text("zalo", $user[6], ["id" => "zalo"]) !!}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Facebook</label>
+			<div class="controls">
+				{!! Form::text("facebook", $user[7], ["id" => "facebook"]) !!}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Image URL</label>
+			<div class="controls">
+				{!! Form::text("image_url", $user[8], ["id" => "image_url"]) !!}
 			</div>
 		</div>
 		<div class="form-actions">
@@ -71,6 +95,10 @@
 			{!! QrCode::size(150)->generate(route('user.update', ['user_id' => $user[0]])); !!}
 			<p>Scan me to return to customer info page.</p>
 		</div>
+		<div class="text-center">
+			{!! QrCode::size(150)->generate(route('user.update', ['user_id' => $user[0]])); !!}
+			<p>User Image.</p>
+		</div>
 	</div>
 	@endif
 
@@ -78,23 +106,23 @@
 	<div class="widget-box" style="border-left: 0px; border-right: 0px;">
 		<div class="widget-title">
 			<ul class="nav nav-tabs">
-				<li class="{{ empty($user[0]) || empty($user[7]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">1st Visit</a></li>
-				<li class="{{ !empty($user[7]) && empty($user[9]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">2nd Visit</a></li>
-				<li class="{{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">3rd Visit</a></li>
-				<li class="{{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">4th Visit</a></li>
+				<li class="{{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">1st Visit</a></li>
+				<li class="{{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">2nd Visit</a></li>
+				<li class="{{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">3rd Visit</a></li>
+				<li class="{{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">4th Visit</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">
-			<div id="tab1" class="tab-pane {{ empty($user[0]) || empty($user[7]) ? "active" : ""  }}">
+			<div id="tab1" class="tab-pane {{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}">
 				@include('user.elements.form_tab1')
 			</div>
-			<div id="tab2" class="tab-pane {{ !empty($user[7]) && empty($user[9]) ? "active" : ""  }}">
+			<div id="tab2" class="tab-pane {{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '2'])
 			</div>
-			<div id="tab3" class="tab-pane {{ !empty($user[9]) && empty($user[11]) ? "active" : ""  }}">
+			<div id="tab3" class="tab-pane {{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '3'])
 			</div>
-			<div id="tab4" class="tab-pane {{ !empty($user[11]) && empty($user[13]) ? "active" : ""  }}">
+			<div id="tab4" class="tab-pane {{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '4'])
 			</div>
 		</div>

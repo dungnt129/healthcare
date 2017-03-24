@@ -36,6 +36,7 @@
 					<th>Name</th>
 					<th>Address</th>
 					<th>Phone</th>
+					<th>Mã BN</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
@@ -50,6 +51,7 @@
 					</td>
 					<td>{!! nl2br($user[2]) !!}</td>
 					<td>{!! nl2br($user[3]) !!}</td>
+					<td>{!! $user[4] or ''  !!}</td>
 					<td class="text-center">
 						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}" class="btn btn-info btn-xs" title="Edit"><i class="icon-edit"></i></a>
 						<a data-href="{{ route('user.delete', ['user_id' => $user[0]]) }}" class="btn btn-danger btn-xs btn-confirm-delete" title="Delete" data-toggle="modal"><i class="icon-remove"></i></a>

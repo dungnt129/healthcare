@@ -1,5 +1,12 @@
 $(function () {
 	/* Tab 1 */
+	$('.tab1_tuvanvien1_accept').on('click', function () {
+
+		$('.tab1_tuvanvien1_accept').not(this).attr('checked', false);
+
+		$.uniform.update();
+	});
+
 	$('.tab1_tuvanvien1_sex').on('click', function () {
 
 		$('.tab1_tuvanvien1_sex').not(this).attr('checked', false);
@@ -128,6 +135,13 @@ $(function () {
 		} else {
 			questionHasCondomWhenAssSex.fadeOut();
 		}
+	});
+
+	$('.tab1_tuvanvien3_accept_prep').on('click', function () {
+
+		$('.tab1_tuvanvien3_accept_prep').not(this).attr('checked', false);
+
+		$.uniform.update();
 	});
 	/* End tab 1 */
 

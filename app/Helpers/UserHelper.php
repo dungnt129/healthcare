@@ -18,7 +18,8 @@ class UserHelper {
 	static $mapOptionDay1 = [
 		"tuvanvien1" => [
 			"accept" => [
-				1 => "Có"
+				1 => "Có",
+				2 => "Không"
 			],
 			"sex" => [
 				1 => "Nam",
@@ -81,7 +82,8 @@ class UserHelper {
 		],
 		"tuvanvien3" => [
 			"accept_prep" => [
-				1 => "Có"
+				1 => "Có",
+				2 => "Không"
 			]
 		]
 	];
@@ -145,7 +147,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:N');
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:S');
 
 		if(empty($users)) return $user;
 
@@ -153,20 +155,20 @@ class UserHelper {
 			// Compare with user id
 			if($data[0] == $userId) {
 				// Decode json data day 1
-				if(!empty($data[6])) {
-					$data[6] = json_decode($data[6], true);
+				if(!empty($data[11])) {
+					$data[11] = json_decode($data[11], true);
 				}
 				// Decode json data day 2
-				if(!empty($data[8])) {
-					$data[8] = json_decode($data[8], true);
+				if(!empty($data[13])) {
+					$data[13] = json_decode($data[13], true);
 				}
 				// Decode json data day 3
-				if(!empty($data[10])) {
-					$data[10] = json_decode($data[10], true);
+				if(!empty($data[15])) {
+					$data[15] = json_decode($data[15], true);
 				}
 				// Decode json data day 4
-				if(!empty($data[12])) {
-					$data[12] = json_decode($data[12], true);
+				if(!empty($data[17])) {
+					$data[17] = json_decode($data[17], true);
 				}
 
 				return $data;
