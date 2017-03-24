@@ -95,10 +95,12 @@
 			{!! QrCode::size(150)->generate(route('user.update', ['user_id' => $user[0]])); !!}
 			<p>Scan me to return to customer info page.</p>
 		</div>
-		<div class="text-center">
-			{!! QrCode::size(150)->generate(route('user.update', ['user_id' => $user[0]])); !!}
+		@if(!empty($user[8]))
+		<div class="text-center square">
+			<img src="{{ $user[8] }}" alt="User Image"/>
 			<p>User Image.</p>
 		</div>
+		@endif
 	</div>
 	@endif
 
@@ -110,6 +112,11 @@
 				<li class="{{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">2nd Visit</a></li>
 				<li class="{{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">3rd Visit</a></li>
 				<li class="{{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">4th Visit</a></li>
+				<li class="{{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">5th Visit</a></li>
+				<li class="{{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">6th Visit</a></li>
+				<li class="{{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">7th Visit</a></li>
+				<li class="{{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">8th Visit</a></li>
+				<li class="{{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">9th Visit</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">
@@ -124,6 +131,21 @@
 			</div>
 			<div id="tab4" class="tab-pane {{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '4'])
+			</div>
+			<div id="tab5" class="tab-pane {{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}">
+				@include('user.elements.form_tab234', ['tab' => '5'])
+			</div>
+			<div id="tab6" class="tab-pane {{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}">
+				@include('user.elements.form_tab234', ['tab' => '6'])
+			</div>
+			<div id="tab7" class="tab-pane {{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}">
+				@include('user.elements.form_tab234', ['tab' => '7'])
+			</div>
+			<div id="tab8" class="tab-pane {{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}">
+				@include('user.elements.form_tab234', ['tab' => '8'])
+			</div>
+			<div id="tab9" class="tab-pane {{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}">
+				@include('user.elements.form_tab9')
 			</div>
 		</div>
 	</div>

@@ -135,13 +135,46 @@ class UserHelper {
 			],
 			"hasAlwaysUseCondomWhenAssSex" => [
 				1 => "Luôn luôn",
-				2 => "Thường xuyên",
+				2 => "Thỉnh thoảng",
 				3 => "Không bao giờ"
 			],
 			"hasCocainInLastYear" => [
 				1 => "Có",
 				2 => "Không",
 				3 => "Không trả lời"
+			]
+		],
+		"bacsi" => [
+			"fastHIVresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"confirmHIVresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"chucnangthanResult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"hasSideEffects" => [
+				1  => "Không có phản ứng phụ",
+				2  => "Phản ứng cấp độ 1",
+				3  => "Phản ứng cấp độ 2",
+				4  => "Phản ứng cấp độ 3",
+				5  => "Phản ứng cấp độ 4"
+			],
+			"antiHCVresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"VDRLRPRresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"poisonGanResult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
 			]
 		],
 		"tuvanvien3" => [
@@ -175,6 +208,15 @@ class UserHelper {
 		3  => "Không trả lời"
 	];
 
+	static $optionResult4 = [
+		"" => "",
+		1  => "Không có phản ứng phụ",
+		2  => "Phản ứng cấp độ 1",
+		3  => "Phản ứng cấp độ 2",
+		4  => "Phản ứng cấp độ 3",
+		5  => "Phản ứng cấp độ 4"
+	];
+
 	/**
 	 * Get Login User Info
 	 *
@@ -205,7 +247,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get list user data from google sheet
-		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:S');
+		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:AB');
 
 		if(empty($users)) return $user;
 
@@ -228,6 +270,24 @@ class UserHelper {
 				if(!empty($data[17])) {
 					$data[17] = json_decode($data[17], true);
 				}
+				// Decode json data day 5
+				if(!empty($data[19])) {
+					$data[19] = json_decode($data[19], true);
+				}
+				// Decode json data day 6
+				if(!empty($data[21])) {
+					$data[21] = json_decode($data[21], true);
+				}
+				// Decode json data day 7
+				if(!empty($data[23])) {
+					$data[23] = json_decode($data[23], true);
+				}
+				// Decode json data day 8
+				if(!empty($data[25])) {
+					$data[25] = json_decode($data[25], true);
+				}
+				// Data tab 9
+				if(empty($data[27])) $data[27] = '';
 
 				return $data;
 			}
@@ -244,7 +304,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get next user id in user sheet data
-		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!MS2');
+		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!MT2');
 
 		if(empty($data[0][0])) return $nextUserId;
 

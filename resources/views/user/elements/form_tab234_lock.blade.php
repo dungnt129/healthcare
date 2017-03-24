@@ -140,15 +140,15 @@
 		<div class="control-group">
 			<label class="control-label-custom">3. Các hành vi nguy cơ:</label>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">a. Câu hỏi 1: Bạn có quan hệ tình dục với bao nhiêu bạn tình nam trong vòng 3 tháng qua?</label>
+				<label class="control-sublabel-custom">a. Bạn có quan hệ tình dục với bao nhiêu bạn tình nam trong vòng 3 tháng qua?</label>
                 {!! Form::text("tab[{$tab}][tuvanvien1][howManySexFriends]", isset($user[$index]["tuvanvien1"]["howManySexFriends"]) ? $user[$index]["tuvanvien1"]["howManySexFriends"] : "", ["id" => "tab[{$tab}][tuvanvien1][howManySexFriends]", "readonly" => ""]) !!}
 			</div>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">b. Câu hỏi 2: Trong số đó, bạn quan hệ tình dục đường hậu môn hay âm đạo giả với bao nhiêu người trong 3 tháng qua?</label>
+				<label class="control-sublabel-custom">b. Trong số đó, bạn quan hệ tình dục đường hậu môn với bao nhiêu người trong 3 tháng qua?</label>
                 {!! Form::text("tab[{$tab}][tuvanvien1][howManyAssSexFriends]", isset($user[$index]["tuvanvien1"]["howManyAssSexFriends"]) ? $user[$index]["tuvanvien1"]["howManyAssSexFriends"] : "", ["id" => "tab[{$tab}][tuvanvien1][howManyAssSexFriends]", "readonly" => ""]) !!}
 			</div>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">c. Câu hỏi 3: Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn hay âm đạo giả với bạn tình nam không?</label>
+				<label class="control-sublabel-custom">c. Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn với bạn tình nam không?</label>
 				{!! Form::hidden("tab[{$tab}][tuvanvien1][hasCondomWhenAssSex]", !empty($user[$index]["tuvanvien1"]["hasCondomWhenAssSex"]) ? $user[$index]["tuvanvien1"]["hasCondomWhenAssSex"] : "" ) !!}
                 <label>
 					{!! Form::checkbox("tab[{$tab}][tuvanvien1][hasCondomWhenAssSex]", 1, (!empty($user[$index]["tuvanvien1"]["hasCondomWhenAssSex"]) && $user[$index]["tuvanvien1"]["hasCondomWhenAssSex"] == 1) ? true : null, ["class" => "tab{$tab}_tuvanvien1_hasCondomWhenAssSex", "disabled" => ""]) !!}
@@ -158,21 +158,21 @@
 					Không</label>
 			</div>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">d. Bạn có thường xuyên sử dụng bao cao su khi quan hệ tình dục đường hậu môn hay âm đạo giả với bạn tình nam trong 3 tháng qua không?</label>
+				<label class="control-sublabel-custom">d. Bạn có thường xuyên sử dụng bao cao su khi quan hệ tình dục đường hậu môn với bạn tình nam trong 3 tháng qua không?</label>
 				{!! Form::hidden("tab[{$tab}][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", !empty($user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) ? $user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] : "" ) !!}
                 <label>
 					{!! Form::checkbox("tab[{$tab}][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", 1, (!empty($user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) && $user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] == 1) ? true : null, ["class" => "tab{$tab}_tuvanvien1_hasAlwaysUseCondomWhenAssSex", "disabled" => ""]) !!}
 					Luôn luôn</label>
 				<label>
 					{!! Form::checkbox("tab[{$tab}][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", 2, (!empty($user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) && $user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] == 2) ? true : null, ["class" => "tab{$tab}_tuvanvien1_hasAlwaysUseCondomWhenAssSex", "disabled" => ""]) !!}
-					Thường xuyên</label>
+					Thỉnh thoảng</label>
 				<label>
 					{!! Form::checkbox("tab[{$tab}][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", 3, (!empty($user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) && $user[$index]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] == 3) ? true : null, ["class" => "tab{$tab}_tuvanvien1_hasAlwaysUseCondomWhenAssSex", "disabled" => ""]) !!}
 					Không bao giờ</label>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">4. Bạn có sử dụng ma túy tổng hợp (ma túy đá, Speed, Thuốc lắc) trong năm qua không:</label>
+			<label class="control-label-custom">4. Bạn có sử dụng ma túy tổng hợp (ví dụ: ma túy đá, Thuốc lắc) trong 12 tháng qua không:</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[{$tab}][tuvanvien1][hasCocainInLastYear]", !empty($user[$index]["tuvanvien1"]["hasCocainInLastYear"]) ? $user[$index]["tuvanvien1"]["hasCocainInLastYear"] : "" ) !!}
                 <label>
@@ -211,55 +211,62 @@
 		<div class="control-group">
 			<label class="control-label-custom">1. Kết quả xét nghiệm nhanh HIV</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][fastHIVresult]", !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][fastHIVresultdate]", !empty($user[$index]["bacsi"]["fastHIVresultdate"]) ? $user[$index]["bacsi"]["fastHIVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][fastHIVresult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][fastHIVresult]", !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">2. Kết quả xét nghiệm khẳng định HIV</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][confirmHIVresult]", !empty($user[$index]["bacsi"]["confirmHIVresult"]) ? $user[$index]["bacsi"]["confirmHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][confirmHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][confirmHIVresultdate]", !empty($user[$index]["bacsi"]["confirmHIVresultdate"]) ? $user[$index]["bacsi"]["confirmHIVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][confirmHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][confirmHIVresult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["confirmHIVresult"]) ? $user[$index]["bacsi"]["confirmHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][confirmHIVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][confirmHIVresult]", !empty($user[$index]["bacsi"]["confirmHIVresult"]) ? $user[$index]["bacsi"]["confirmHIVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">3. Chức năng thận (độ thanh thải creatinine > 60ml/min) (Các tháng 3,6,12)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResult]", !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResultDate]", !empty($user[$index]["bacsi"]["chucnangthanResultDate"]) ? $user[$index]["bacsi"]["chucnangthanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][chucnangthanResult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][chucnangthanResult]", !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">4. Bạn có gặp phải các phản ứng phụ không? (Tham khảo phụ lục III)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][hasSideEffects]", !empty($user[$index]["bacsi"]["hasSideEffects"]) ? $user[$index]["bacsi"]["hasSideEffects"] : "", ["id" => "tab[{$tab}][bacsi][hasSideEffects]", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][hasSideEffects]", UserHelper::$optionResult4, !empty($user[$index]["bacsi"]["hasSideEffects"]) ? $user[$index]["bacsi"]["hasSideEffects"] : "", ["id" => "tab[{$tab}][bacsi][hasSideEffects]", "class" => "span3 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][hasSideEffects]", !empty($user[$index]["bacsi"]["hasSideEffects"]) ? $user[$index]["bacsi"]["hasSideEffects"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">5. Kết quả xét nghiệm Anti-HCV (Viêm gan C)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][antiHCVresult]", !empty($user[$index]["bacsi"]["antiHCVresult"]) ? $user[$index]["bacsi"]["antiHCVresult"] : "", ["id" => "tab[{$tab}][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm (tháng thứ 12)</span>
 				{!! Form::text("tab[{$tab}][bacsi][antiHCVresultdate]", !empty($user[$index]["bacsi"]["antiHCVresultdate"]) ? $user[$index]["bacsi"]["antiHCVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][antiHCVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][antiHCVresult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["antiHCVresult"]) ? $user[$index]["bacsi"]["antiHCVresult"] : "", ["id" => "tab[{$tab}][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][antiHCVresult]", !empty($user[$index]["bacsi"]["antiHCVresult"]) ? $user[$index]["bacsi"]["antiHCVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">6. Kết quả xét nghiệm VDRL/RPR (syphilis)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][VDRLRPRresult]", !empty($user[$index]["bacsi"]["VDRLRPRresult"]) ? $user[$index]["bacsi"]["VDRLRPRresult"] : "", ["id" => "tab[{$tab}][bacsi][VDRLRPRresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm (tháng thứ 12)</span>
 				{!! Form::text("tab[{$tab}][bacsi][VDRLRPRresultdate]", !empty($user[$index]["bacsi"]["VDRLRPRresultdate"]) ? $user[$index]["bacsi"]["VDRLRPRresultdate"] : "", ["id" => "tab[{$tab}][bacsi][VDRLRPRresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][VDRLRPRresult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["VDRLRPRresult"]) ? $user[$index]["bacsi"]["VDRLRPRresult"] : "", ["id" => "tab[{$tab}][bacsi][VDRLRPRresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][VDRLRPRresult]", !empty($user[$index]["bacsi"]["VDRLRPRresult"]) ? $user[$index]["bacsi"]["VDRLRPRresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">7. Nhiễm độc gan: Mức AST và ALT (tại các tháng 3,6,12)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][poisonGanResult]", !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][poisonGanResultDate]", !empty($user[$index]["bacsi"]["poisonGanResultDate"]) ? $user[$index]["bacsi"]["poisonGanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][poisonGanResult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[{$tab}][bacsi][poisonGanResult]", !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">

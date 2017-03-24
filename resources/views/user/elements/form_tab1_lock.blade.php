@@ -181,7 +181,8 @@
 		<div class="control-group">
 			<label class="control-label-custom">10. Bạn có sử dụng ma túy nào khác trong 12 tháng qua không?</label>
 			<div class="controls-custom">
-                {!! Form::text("tab[1][tuvanvien1][hasAnotherCocainLastYear]", $user[11]["tuvanvien1"]["hasAnotherCocainLastYear"], ["id" => "tab[1][tuvanvien1][hasAnotherCocainLastYear]", "readonly" => ""]) !!}
+				{!! Form::hidden("tab[1][tuvanvien1][hasAnotherCocainLastYear]", !empty($user[11]["tuvanvien1"]["hasAnotherCocainLastYear"]) ? $user[11]["tuvanvien1"]["hasAnotherCocainLastYear"] : "" ) !!}
+                {!! Form::select("tab[1][tuvanvien1][hasAnotherCocainLastYear]", UserHelper::$optionResult3, $user[11]["tuvanvien1"]["hasAnotherCocainLastYear"], ["id" => "tab[1][tuvanvien1][hasAnotherCocainLastYear]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -246,7 +247,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][fastHIVresultdate]", $user[11]["bacsi"]["fastHIVresultdate"], ["id" => "tab[1][bacsi][fastHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][fastHIVresult]", $user[11]["bacsi"]["fastHIVresult"], ["id" => "tab[1][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][fastHIVresult]", UserHelper::$optionResult2, $user[11]["bacsi"]["fastHIVresult"], ["id" => "tab[1][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][fastHIVresult]", !empty($user[11]["bacsi"]["fastHIVresult"]) ? $user[11]["bacsi"]["fastHIVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -254,7 +256,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][confirmHIVresultdate]", $user[11]["bacsi"]["confirmHIVresultdate"], ["id" => "tab[1][bacsi][confirmHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][confirmHIVresult]", $user[11]["bacsi"]["confirmHIVresult"], ["id" => "tab[1][bacsi][confirmHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][confirmHIVresult]", UserHelper::$optionResult, $user[11]["bacsi"]["confirmHIVresult"], ["id" => "tab[1][bacsi][confirmHIVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][confirmHIVresult]", !empty($user[11]["bacsi"]["confirmHIVresult"]) ? $user[11]["bacsi"]["confirmHIVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -262,7 +265,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][viemGanBresultdate]", $user[11]["bacsi"]["viemGanBresultdate"], ["id" => "tab[1][bacsi][viemGanBresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][viemGanBresult]", $user[11]["bacsi"]["viemGanBresult"], ["id" => "tab[1][bacsi][viemGanBresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][viemGanBresult]", UserHelper::$optionResult, $user[11]["bacsi"]["viemGanBresult"], ["id" => "tab[1][bacsi][viemGanBresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][viemGanBresult]", !empty($user[11]["bacsi"]["viemGanBresult"]) ? $user[11]["bacsi"]["viemGanBresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -270,7 +274,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][sangLocViemGanBresultdate]", $user[11]["bacsi"]["sangLocViemGanBresultdate"], ["id" => "tab[1][bacsi][sangLocViemGanBresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][sangLocViemGanBresult]", $user[11]["bacsi"]["sangLocViemGanBresult"], ["id" => "tab[1][bacsi][sangLocViemGanBresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][sangLocViemGanBresult]", UserHelper::$optionResult, $user[11]["bacsi"]["sangLocViemGanBresult"], ["id" => "tab[1][bacsi][sangLocViemGanBresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][sangLocViemGanBresult]", !empty($user[11]["bacsi"]["sangLocViemGanBresult"]) ? $user[11]["bacsi"]["sangLocViemGanBresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -278,7 +283,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHBsresultdate]", $user[11]["bacsi"]["antiHBsresultdate"], ["id" => "tab[1][bacsi][antiHBsresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][antiHBsresult]", $user[11]["bacsi"]["antiHBsresult"], ["id" => "tab[1][bacsi][antiHBsresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][antiHBsresult]", UserHelper::$optionResult, $user[11]["bacsi"]["antiHBsresult"], ["id" => "tab[1][bacsi][antiHBsresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][antiHBsresult]", !empty($user[11]["bacsi"]["antiHBsresult"]) ? $user[11]["bacsi"]["antiHBsresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -286,7 +292,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHCVresultdate]", $user[11]["bacsi"]["antiHCVresultdate"], ["id" => "tab[1][bacsi][antiHCVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][antiHCVresult]", $user[11]["bacsi"]["antiHCVresult"], ["id" => "tab[1][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][antiHCVresult]", UserHelper::$optionResult, $user[11]["bacsi"]["antiHCVresult"], ["id" => "tab[1][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][antiHCVresult]", !empty($user[11]["bacsi"]["antiHCVresult"]) ? $user[11]["bacsi"]["antiHCVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -294,7 +301,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHAVresultdate]", $user[11]["bacsi"]["antiHAVresultdate"], ["id" => "tab[1][bacsi][antiHAVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][antiHAVresult]", $user[11]["bacsi"]["antiHAVresult"], ["id" => "tab[1][bacsi][antiHAVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][antiHAVresult]", UserHelper::$optionResult, $user[11]["bacsi"]["antiHAVresult"], ["id" => "tab[1][bacsi][antiHAVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][antiHAVresult]", !empty($user[11]["bacsi"]["antiHAVresult"]) ? $user[11]["bacsi"]["antiHAVresult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -302,7 +310,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][giangmaiResultDate]", $user[11]["bacsi"]["giangmaiResultDate"], ["id" => "tab[1][bacsi][giangmaiResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][giangmaiResult]", $user[11]["bacsi"]["giangmaiResult"], ["id" => "tab[1][bacsi][giangmaiResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][giangmaiResult]", UserHelper::$optionResult, $user[11]["bacsi"]["giangmaiResult"], ["id" => "tab[1][bacsi][giangmaiResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][giangmaiResult]", !empty($user[11]["bacsi"]["giangmaiResult"]) ? $user[11]["bacsi"]["giangmaiResult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -310,7 +319,8 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][chucnangthanResultDate]", $user[11]["bacsi"]["chucnangthanResultDate"], ["id" => "tab[1][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::text("tab[1][bacsi][chucnangthanResult]", $user[11]["bacsi"]["chucnangthanResult"], ["id" => "tab[1][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][chucnangthanResult]", UserHelper::$optionResult, $user[11]["bacsi"]["chucnangthanResult"], ["id" => "tab[1][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::hidden("tab[1][bacsi][chucnangthanResult]", !empty($user[11]["bacsi"]["chucnangthanResult"]) ? $user[11]["bacsi"]["chucnangthanResult"] : "" ) !!}
 			</div>
 		</div>
 		<div class="control-group">

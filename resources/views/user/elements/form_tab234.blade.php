@@ -10,6 +10,18 @@ switch($tab) {
 	case 4:
 		$index = 17;
 		break;
+	case 5:
+		$index = 19;
+		break;
+	case 6:
+		$index = 21;
+		break;
+	case 7:
+		$index = 23;
+		break;
+	case 8:
+		$index = 25;
+		break;
 	default:
 		break;
 }
