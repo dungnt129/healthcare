@@ -32,8 +32,8 @@ class UserHelper {
 			"hasHIVfriend" => [
 				1 => "Có",
 				2 => "Không",
-				3 => "Không biết",
-				4 => "Không phù hợp"
+				3 => "Không trả lời",
+//				4 => "Không phù hợp"
 			],
 			"hasSexForCash" => [
 				1 => "Có",
@@ -61,7 +61,7 @@ class UserHelper {
 			],
 			"hasAlwaysUseCondomWhenAssSex" => [
 				1 => "Luôn luôn",
-				2 => "Thường xuyên",
+				2 => "Thỉnh thoảng",
 				3 => "Không bao giờ"
 			],
 			"hasCocainInLastYear" => [
@@ -69,15 +69,54 @@ class UserHelper {
 				2 => "Không",
 				3 => "Không trả lời"
 			],
+			"hasAnotherCocainLastYear" => [
+				1 => "Có",
+				2 => "Không",
+				3 => "Không trả lời"
+			],
 			"hasPaidForPrEP" => [
 				1 => "Có",
 				2 => "Không",
-				3 => "Không biết"
+				3 => "Chưa biết"
 			],
 			"howDoYouKnowPrep" => [
 				1 => "Nhân viên xét nghiệm không chuyên",
 				2 => "Tự đến (có thông tin qua chiến dịch và website của CARMAH)",
 				3 => "CBO giới thiệu đến"
+			]
+		],
+		"bacsi" => [
+			"fastHIVresult" => [
+				1 => "Âm tính",
+				2 => "Có phản ứng"
+			],
+			"confirmHIVresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"sangLocViemGanBresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"antiHBsresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"antiHCVresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"antiHAVresult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"giangmaiResult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
+			],
+			"chucnangthanResult" => [
+				1 => "Âm tính",
+				2 => "Dương tính"
 			]
 		],
 		"tuvanvien3" => [
@@ -115,6 +154,25 @@ class UserHelper {
 				2 => "Thay đổi nguy cơ"
 			]
 		]
+	];
+
+	static $optionResult = [
+		"" => "Kết quả",
+		1  => "Âm tính",
+		2  => "Dương tính"
+	];
+
+	static $optionResult2 = [
+		"" => "Kết quả",
+		1  => "Âm tính",
+		2  => "Có phản ứng"
+	];
+
+	static $optionResult3 = [
+		"" => "",
+		1  => "Có",
+		2  => "Không",
+		3  => "Không trả lời"
 	];
 
 	/**
@@ -186,7 +244,7 @@ class UserHelper {
 		$userSheetId = Config::get('google.user_data_sheet');
 
 		// Get next user id in user sheet data
-		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!GA2');
+		$data = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!MS2');
 
 		if(empty($data[0][0])) return $nextUserId;
 
@@ -332,5 +390,35 @@ class UserHelper {
 		}
 
 		return $value;
+	}
+
+	/**
+     * Get array, object element, return empty string if element not exist
+     *
+     * @param array|object $data
+     * @param string       $key
+     *
+     * @return string|array
+     */
+    public static function getElement($data, $key, $default = '')
+    {
+        if (is_array($default) || is_object($default)) {
+            $value = $default;
+        }
+        else {
+            $value = trim($default);
+        }
+        if (is_array($data) && isset ($data [$key])) {
+            $value = $data [$key];
+        }
+        elseif (is_object($data) && isset ($data->$key)) {
+            $value = $data->$key;
+        }
+
+        return $value;
+    }
+
+	public static function getOption($data) {
+		return !empty($data) ? $data : null;
 	}
 }

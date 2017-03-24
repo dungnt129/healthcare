@@ -35,26 +35,26 @@
 	<div class="{{ !empty($user[0]) ? "span6" : "span12" }}">
 		@if(!empty($user[0]))
 		<div class="control-group">
-			<label class="control-label">ID</label>
+			<label class="control-label">Mã số</label>
 			<div class="controls">
 				{!! Form::text("user_id", $user[0], ["id" => "user_id", "disabled" => "disabled"]) !!}
 			</div>
 		</div>
 		@endif
 		<div class="control-group">
-			<label class="control-label">Name</label>
+			<label class="control-label">Tên khách hàng</label>
 			<div class="controls">
 				{!! Form::text("name", $user[1], ["id" => "name"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">Address</label>
+			<label class="control-label">Địa chỉ</label>
 			<div class="controls">
 				{!! Form::text("address", $user[2], ["id" => "address"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">Phone</label>
+			<label class="control-label">Số điện thoại</label>
 			<div class="controls">
 				{!! Form::text("phone", $user[3], ["id" => "phone"]) !!}
 			</div>
@@ -80,11 +80,11 @@
 		<div class="control-group">
 			<label class="control-label">Image URL</label>
 			<div class="controls">
-				{!! Form::text("image_url", $user[8], ["id" => "image_url"]) !!}
+				{!! Form::url("image_url", $user[8], ["id" => "image_url"]) !!}
 			</div>
 		</div>
 		<div class="form-actions">
-			<input value="Save" class="btn btn-success" type="submit">
+			<input value="Lưu" class="btn btn-success" type="submit">
 		</div>
 	</div>
 
@@ -131,6 +131,6 @@
 
 	<div class="form-actions">
 		<input type="hidden" value="{{ $user[0] }}" name="user_id" id="user_id">
-		<input type="submit" value="Save" class="btn btn-success">
+		<input type="submit" value="Lưu" class="btn btn-success">
 	</div>
 </form>

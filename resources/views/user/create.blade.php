@@ -3,7 +3,7 @@
 @section('content')
 <div class="widget-box">
 	<div class="widget-title"> <span class="icon"><i class="icon-group"></i></span>
-		<h5>User Information</h5>
+		<h5>Thông tin khách hàng</h5>
 	</div>
 	<div class="widget-content nopadding">
 		<!--User form-->

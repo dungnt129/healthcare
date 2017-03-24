@@ -4,7 +4,7 @@
 <div class="row-fluid">
 	<a href="{{ route('user.create') }}" class="btn btn-info btn-xs" title="Edit">
 		<i class="icon-plus"></i>
-		Add new user
+		Tạo khách hàng mới
 	</a>
 </div>
 

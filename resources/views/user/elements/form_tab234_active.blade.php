@@ -204,25 +204,25 @@
 		<div class="control-group">
 			<label class="control-label-custom">1. Kết quả xét nghiệm nhanh HIV</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][fastHIVresult]", !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][fastHIVresultdate]", !empty($user[$index]["bacsi"]["fastHIVresultdate"]) ? $user[$index]["bacsi"]["fastHIVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
+				{!! Form::text("tab[{$tab}][bacsi][fastHIVresult]", !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">2. Kết quả xét nghiệm khẳng định HIV</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][confirmHIVresult]", !empty($user[$index]["bacsi"]["confirmHIVresult"]) ? $user[$index]["bacsi"]["confirmHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][confirmHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][confirmHIVresultdate]", !empty($user[$index]["bacsi"]["confirmHIVresultdate"]) ? $user[$index]["bacsi"]["confirmHIVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][confirmHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
+				{!! Form::text("tab[{$tab}][bacsi][confirmHIVresult]", !empty($user[$index]["bacsi"]["confirmHIVresult"]) ? $user[$index]["bacsi"]["confirmHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][confirmHIVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">3. Chức năng thận (độ thanh thải creatinine > 60ml/min) (Các tháng 3,6,12)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResult]", !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResultDate]", !empty($user[$index]["bacsi"]["chucnangthanResultDate"]) ? $user[$index]["bacsi"]["chucnangthanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
+				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResult]", !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -234,25 +234,25 @@
 		<div class="control-group">
 			<label class="control-label-custom">5. Kết quả xét nghiệm Anti-HCV (Viêm gan C)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][antiHCVresult]", !empty($user[$index]["bacsi"]["antiHCVresult"]) ? $user[$index]["bacsi"]["antiHCVresult"] : "", ["id" => "tab[{$tab}][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 				<span>Ngày xét nghiệm (tháng thứ 12)</span>
 				{!! Form::text("tab[{$tab}][bacsi][antiHCVresultdate]", !empty($user[$index]["bacsi"]["antiHCVresultdate"]) ? $user[$index]["bacsi"]["antiHCVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][antiHCVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
+				{!! Form::text("tab[{$tab}][bacsi][antiHCVresult]", !empty($user[$index]["bacsi"]["antiHCVresult"]) ? $user[$index]["bacsi"]["antiHCVresult"] : "", ["id" => "tab[{$tab}][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">6. Kết quả xét nghiệm VDRL/RPR (syphilis)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][VDRLRPRresult]", !empty($user[$index]["bacsi"]["VDRLRPRresult"]) ? $user[$index]["bacsi"]["VDRLRPRresult"] : "", ["id" => "tab[{$tab}][bacsi][VDRLRPRresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 				<span>Ngày xét nghiệm (tháng thứ 12)</span>
 				{!! Form::text("tab[{$tab}][bacsi][VDRLRPRresultdate]", !empty($user[$index]["bacsi"]["VDRLRPRresultdate"]) ? $user[$index]["bacsi"]["VDRLRPRresultdate"] : "", ["id" => "tab[{$tab}][bacsi][VDRLRPRresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
+				{!! Form::text("tab[{$tab}][bacsi][VDRLRPRresult]", !empty($user[$index]["bacsi"]["VDRLRPRresult"]) ? $user[$index]["bacsi"]["VDRLRPRresult"] : "", ["id" => "tab[{$tab}][bacsi][VDRLRPRresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">7. Nhiễm độc gan: Mức AST và ALT (tại các tháng 3,6,12)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[{$tab}][bacsi][poisonGanResult]", !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][poisonGanResultDate]", !empty($user[$index]["bacsi"]["poisonGanResultDate"]) ? $user[$index]["bacsi"]["poisonGanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
+				{!! Form::text("tab[{$tab}][bacsi][poisonGanResult]", !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả"]) !!}
 			</div>
 		</div>
 		<div class="control-group">

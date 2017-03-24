@@ -73,7 +73,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">6. Bạn có nhận tiền hoặc hiện vật để đổi lấy quan hệ tình dục trong năm qua:</label>
+			<label class="control-label-custom">6. Bạn có nhận tiền hoặc hiện vật để đổi lấy quan hệ tình dục trong 12 tháng qua:</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][hasSexForCash]", !empty($user[11]["tuvanvien1"]["hasSexForCash"]) ? $user[11]["tuvanvien1"]["hasSexForCash"] : "" ) !!}
                 <label>
@@ -88,7 +88,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">7. Bạn có mắc bệnh lây truyền qua đường tình dục trong năm qua không?</label>
+			<label class="control-label-custom">7. Bạn có mắc bệnh lây truyền qua đường tình dục trong 12 tháng qua không?</label>
 			<div class="controls-custom">
 				<label class="control-sublabel-custom">a. Giang mai</label>
 				{!! Form::hidden("tab[1][tuvanvien1][hasGiangMaiInLastYear]", !empty($user[11]["tuvanvien1"]["hasGiangMaiInLastYear"]) ? $user[11]["tuvanvien1"]["hasGiangMaiInLastYear"] : "" ) !!}
@@ -132,15 +132,15 @@
 		<div class="control-group">
 			<label class="control-label-custom">8. Các hành vi nguy cơ:</label>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">a. Câu hỏi 1: Bạn có quan hệ tình dục với bao nhiêu bạn tình nam trong vòng 3 tháng qua?</label>
+				<label class="control-sublabel-custom">a. Bạn có quan hệ tình dục với bao nhiêu bạn tình nam trong vòng 3 tháng qua?</label>
                 {!! Form::text("tab[1][tuvanvien1][howManySexFriends]", $user[11]["tuvanvien1"]["howManySexFriends"], ["id" => "tab[1][tuvanvien1][howManySexFriends]", "readonly" => ""]) !!}
 			</div>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">b. Câu hỏi 2: Trong số đó, bạn quan hệ tình dục đường hậu môn hay âm đạo giả với bao nhiêu người trong 3 tháng qua?</label>
+				<label class="control-sublabel-custom">b. Trong số đó, bạn quan hệ tình dục đường hậu môn với bao nhiêu người trong 3 tháng qua?</label>
                 {!! Form::text("tab[1][tuvanvien1][howManyAssSexFriends]", $user[11]["tuvanvien1"]["howManyAssSexFriends"], ["id" => "tab[1][tuvanvien1][howManyAssSexFriends]", "readonly" => ""]) !!}
 			</div>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">c. Câu hỏi 3: Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn hay âm đạo giả với bạn tình nam không?</label>
+				<label class="control-sublabel-custom">c. Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn với bạn tình nam không?</label>
                 {!! Form::hidden("tab[1][tuvanvien1][hasCondomWhenAssSex]", !empty($user[11]["tuvanvien1"]["hasCondomWhenAssSex"]) ? $user[11]["tuvanvien1"]["hasCondomWhenAssSex"] : "" ) !!}
 				<label>
 					{!! Form::checkbox("tab[1][tuvanvien1][hasCondomWhenAssSex]", 1, (!empty($user[11]["tuvanvien1"]["hasCondomWhenAssSex"]) && $user[11]["tuvanvien1"]["hasCondomWhenAssSex"] == 1) ? true : null, ["class" => "tab1_tuvanvien1_hasCondomWhenAssSex", "disabled" => ""]) !!}
@@ -150,21 +150,21 @@
 					Không</label>
 			</div>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">d. Bạn có thường xuyên sử dụng bao cao su khi quan hệ tình dục đường hậu môn hay âm đạo giả với bạn tình nam trong 3 tháng qua không?</label>
+				<label class="control-sublabel-custom">d. Bạn có thường xuyên sử dụng bao cao su khi quan hệ tình dục đường hậu môn với bạn tình nam trong 3 tháng qua không?</label>
                 {!! Form::hidden("tab[1][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", !empty($user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) ? $user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] : "" ) !!}
 				<label>
 					{!! Form::checkbox("tab[1][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", 1, (!empty($user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) && $user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] == 1) ? true : null, ["class" => "tab1_tuvanvien1_hasAlwaysUseCondomWhenAssSex", "disabled" => ""]) !!}
 					Luôn luôn</label>
 				<label>
 					{!! Form::checkbox("tab[1][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", 2, (!empty($user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) && $user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] == 2) ? true : null, ["class" => "tab1_tuvanvien1_hasAlwaysUseCondomWhenAssSex", "disabled" => ""]) !!}
-					Thường xuyên</label>
+					Thỉnh thoảng</label>
 				<label>
 					{!! Form::checkbox("tab[1][tuvanvien1][hasAlwaysUseCondomWhenAssSex]", 3, (!empty($user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"]) && $user[11]["tuvanvien1"]["hasAlwaysUseCondomWhenAssSex"] == 3) ? true : null, ["class" => "tab1_tuvanvien1_hasAlwaysUseCondomWhenAssSex", "disabled" => ""]) !!}
 					Không bao giờ</label>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">9. Bạn có sử dụng ma túy tổng hợp (ma túy đá, Speed, Thuốc lắc) trong năm qua không:</label>
+			<label class="control-label-custom">9. Bạn có sử dụng ma túy tổng hợp (ví dụ: ma túy đá, Thuốc lắc) trong 12 tháng qua không:</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][hasCocainInLastYear]", !empty($user[11]["tuvanvien1"]["hasCocainInLastYear"]) ? $user[11]["tuvanvien1"]["hasCocainInLastYear"] : "" ) !!}
                 <label>
@@ -179,7 +179,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">10. Bạn có sử dụng ma túy nào khác trong năm qua không?</label>
+			<label class="control-label-custom">10. Bạn có sử dụng ma túy nào khác trong 12 tháng qua không?</label>
 			<div class="controls-custom">
                 {!! Form::text("tab[1][tuvanvien1][hasAnotherCocainLastYear]", $user[11]["tuvanvien1"]["hasAnotherCocainLastYear"], ["id" => "tab[1][tuvanvien1][hasAnotherCocainLastYear]", "readonly" => ""]) !!}
 			</div>
@@ -196,7 +196,7 @@
 					Không</label>
 				<label>
 					{!! Form::checkbox("tab[1][tuvanvien1][hasPaidForPrEP]", 3, (!empty($user[11]["tuvanvien1"]["hasPaidForPrEP"]) && $user[11]["tuvanvien1"]["hasPaidForPrEP"] == 3) ? true : null, ["class" => "tab1_tuvanvien1_hasPaidForPrEP", "disabled" => ""]) !!}
-					Không biết</label>
+					Chưa biết</label>
 			</div>
 		</div>
 
@@ -284,9 +284,9 @@
 		<div class="control-group">
 			<label class="control-label-custom">6. Kết quả xét nghiệm Anti-HCV (viêm gan C)</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[1][bacsi][antiHCVresult]", $user[11]["bacsi"]["antiHCVresult"], ["id" => "tab[1][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][antiHCVresultdate]", $user[11]["bacsi"]["antiHCVresultdate"], ["id" => "tab[1][bacsi][antiHCVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
+				{!! Form::text("tab[1][bacsi][antiHCVresult]", $user[11]["bacsi"]["antiHCVresult"], ["id" => "tab[1][bacsi][antiHCVresult]", "class" => "span2 margin-right5", "placeholder" => "Kết quả", "readonly" => ""]) !!}
 			</div>
 		</div>
 		<div class="control-group">
