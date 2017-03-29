@@ -563,6 +563,9 @@ hr{ border-top-color:#dadada;margin: 10px 0px;}
 .widget-title .nav-tabs li:first-child a {
 	border-left: medium none !important;
 }
+.widget-title .nav-tabs li a {
+	border-width: 0 1px !important;
+}
 .widget-title .nav-tabs li a:hover {
 	background-color: transparent !important;
 	border-color: #D6D6D6;
