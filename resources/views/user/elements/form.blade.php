@@ -97,7 +97,7 @@
 		</div>
 		@if(!empty($user[8]))
 		<div class="text-center square">
-			<img src="{{ $user[8] }}" alt="User Image"/>
+            <img src="{{ $user[8] }}" alt="User Image" class="user-image"/>
 			<p>Ảnh khách hàng.</p>
 		</div>
 		@endif

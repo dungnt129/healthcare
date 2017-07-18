@@ -12,6 +12,11 @@
 </div>
 @stop
 
+@section('style')
+<link href="{{ asset('css/zoomify.min.css' . '?v=' . Config::get('version.css')) }}" rel="stylesheet" />
+@stop
+
 @section('script')
-	<script src="{{ asset('js/user.form.js' . '?v=' . Config::get('version.js')) }}"></script>
+<script src="{{ asset('js/zoomify.min.js' . '?v=' . Config::get('version.js')) }}"></script>
+<script src="{{ asset('js/user.form.js' . '?v=' . Config::get('version.js')) }}"></script>
 @stop

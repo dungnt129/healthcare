@@ -1,4 +1,6 @@
 $(function () {
+	$('.user-image').zoomify();
+
 	/* Tab 1 */
 	$('.tab1_tuvanvien1_accept').on('click', function () {
 
