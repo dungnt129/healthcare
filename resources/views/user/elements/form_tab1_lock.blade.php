@@ -354,6 +354,19 @@
 				{!! Form::textarea ("tab[1][bacsi][otherComment]", $user[11]["bacsi"]["otherComment"], ["id" => "tab[1][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>
 		</div>
+
+        <div class="control-group">
+			<label class="control-label-custom">10. Đủ tiêu chuẩn lâm sàng để tham gia dự án:</label>
+			<div class="controls-custom">
+                {!! Form::hidden("tab[1][bacsi][checkCondition]", !empty($user[11]["bacsi"]["checkCondition"]) ? $user[11]["bacsi"]["checkCondition"] : "" ) !!}
+                <label>
+                    {!! Form::radio('tab[1][bacsi][checkCondition]', 1, (!empty($user[11]["bacsi"]["checkCondition"]) && $user[11]["bacsi"]["checkCondition"] == 1) ? true : null, ['class' => 'tab1_bacsi_checkCondition', "disabled" => ""]) !!}
+					Đủ tiêu chuẩn lâm sàng, gặp tư vấn viên để ký giấy đồng ý tham gia.</label>
+				<label>
+                    {!! Form::radio('tab[1][bacsi][checkCondition]', 2, (!empty($user[11]["bacsi"]["checkCondition"]) && $user[11]["bacsi"]["checkCondition"] == 2) ? true : null, ['class' => 'tab1_bacsi_checkCondition', "disabled" => ""]) !!}
+					Không đủ tiêu chuẩn lâm sàng, kết thúc.</label>
+			</div>
+		</div>
 	</div>
 </div>
 
