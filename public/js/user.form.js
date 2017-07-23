@@ -5,7 +5,44 @@ $(function () {
 	// Init numeric input
 	$(".numeric").numeric();
 
+	// Validate when submit form
+	$("#basic_validate").submit(function() {
+		// Validate
+		var checkAcceptPrep = $('input[name=tab\\[1\\]\\[tuvanvien3\\]\\[accept_prep\\]]:checked').val();
+		var otherReasonText = $("#tab1_tuvanvien3_otherReasonText");
+
+		if(checkAcceptPrep == 2 && otherReasonText.val() == "") {
+			alert("Hãy nhập lý do từ chối tham gia dự án PrEP");
+			otherReasonText.focus();
+			return false;
+		}
+	});
+
 	/* Tab 1 */
+	$('input[name=tab\\[1\\]\\[tuvanvien1\\]\\[checkCondition\\]]').change(function() {
+        if (this.value == 1) {
+            $("#div-bacsi").fadeIn();
+			// Check condition to show tuvanvien3 div
+			var bacsiCheckCondition = $('input[name=tab\\[1\\]\\[bacsi\\]\\[checkCondition\\]]:checked').val();
+			if(bacsiCheckCondition == 1) {
+				$("#div-tuvanvien3").fadeIn();
+			}
+        }
+        else if (this.value == 2) {
+            $("#div-bacsi").fadeOut();
+			$("#div-tuvanvien3").fadeOut();
+        }
+    });
+
+	$('input[name=tab\\[1\\]\\[bacsi\\]\\[checkCondition\\]]').change(function() {
+        if (this.value == 1) {
+			$("#div-tuvanvien3").fadeIn();
+        }
+        else if (this.value == 2) {
+			$("#div-tuvanvien3").fadeOut();
+        }
+    });
+
 	$('.tab1_tuvanvien1_accept').on('click', function () {
 
 		$('.tab1_tuvanvien1_accept').not(this).attr('checked', false);
@@ -148,12 +185,18 @@ $(function () {
 		$('.tab1_tuvanvien3_accept_prep').not(this).attr('checked', false);
 
 		$.uniform.update();
+
+		if($(this).val() == 2 && $(this).attr('checked')) {
+			$("#cancelReason").fadeIn();
+		} else {
+			$("#tab1_tuvanvien3_otherReasonText").val('');
+			$("#cancelReason").fadeOut();
+		}
 	});
 	/* End tab 1 */
 
 	/* Tab 2, 3, 4, 5, 6, 7, 8 */
 	var arrTabId = [2,3,4,5,6,7,8];
-
 
 	arrTabId.forEach(function(id) {
 		// Handle for input hasTieuChay

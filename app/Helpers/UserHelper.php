@@ -83,7 +83,17 @@ class UserHelper {
 				1 => "Nhân viên xét nghiệm không chuyên",
 				2 => "Tự đến (có thông tin qua chiến dịch và website của CARMAH)",
 				3 => "CBO giới thiệu đến"
-			]
+			],
+            "monthSalary" => [
+                1 => "Dưới 5 triệu đồng/tháng",
+				2 => "Từ 5 triệu đồng đến dưới 10 triệu đồng/tháng",
+				3 => "Từ 10 triệu đồng đến dưới 15 triệu đồng/tháng",
+                4 => "Trên 15 triệu đồng/tháng"
+            ],
+            "checkCondition" => [
+                1 => "Đủ tiêu chuẩn, tiếp tục thực hiện các xét nghiệm đánh giá lâm sàng.",
+				2 => "Không đủ tiêu chuẩn hành vi, chấm dứt.",
+            ]
 		],
 		"bacsi" => [
 			"fastHIVresult" => [
@@ -118,7 +128,11 @@ class UserHelper {
 				1  => "Độ thanh thải bình thường",
                 2  => "Độ thanh thải tăng",
                 3  => "Độ thanh thải thấp",
-			]
+			],
+            "checkCondition" => [
+                1 => "Đủ tiêu chuẩn lâm sàng, gặp tư vấn viên để ký giấy đồng ý tham gia.",
+				2 => "Không đủ tiêu chuẩn lâm sàng, kết thúc.",
+            ]
 		],
 		"tuvanvien3" => [
 			"accept_prep" => [
@@ -358,14 +372,14 @@ class UserHelper {
 		$arrDataTuvanvien1Required = [
 			"tentuvanvien", "date", "accept", "birthyear", "sex", "isVietnamese", "hasHIVfriend",
 			"hasSexForCash", "hasGiangMaiInLastYear", "hasLauInLastYear", "hasChlamydiaInLastYear",
-			"hasCocainInLastYear", "hasPaidForPrEP"
+			"hasCocainInLastYear", "hasPaidForPrEP", "monthSalary", "checkCondition"
 		];
 
 		$arrDataBacsiRequired = [
 			"tenbacsi", "date", "fastHIVresult", "fastHIVresultdate", "confirmHIVresult", "confirmHIVresultdate",
-			"viemGanBresult", "viemGanBresultdate", "sangLocViemGanBresult", "sangLocViemGanBresultdate","antiHBsresult",
-			"antiHBsresultdate", "antiHCVresult", "antiHCVresultdate", "antiHAVresult", "antiHAVresultdate", "giangmaiResult",
-			"giangmaiResultDate", "chucnangthanResult", "chucnangthanResultDate"
+			"sangLocViemGanBresult", "sangLocViemGanBresultdate","antiHBsresult", "antiHBsresultdate",
+			"antiHCVresult", "antiHCVresultdate", "antiHAVresult", "antiHAVresultdate", "giangmaiResult",
+			"giangmaiResultDate", "chucnangthanResult", "chucnangthanResultDate", "checkCondition"
 		];
 
 		$arrDataTuvanvien3Required = [

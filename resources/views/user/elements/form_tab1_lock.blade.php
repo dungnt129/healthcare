@@ -202,8 +202,27 @@
 			</div>
 		</div>
 
+        <div class="control-group">
+			<label class="control-label-custom">12. Thu nhập trung bình một tháng của bạn là bao nhiêu: </label>
+			<div class="controls-custom">
+                {!! Form::hidden("tab[1][tuvanvien1][monthSalary]", !empty($user[11]["tuvanvien1"]["monthSalary"]) ? $user[11]["tuvanvien1"]["monthSalary"] : "" ) !!}
+                <label>
+                    {!! Form::radio('tab[1][tuvanvien1][monthSalary]', 1, (!empty($user[11]["tuvanvien1"]["monthSalary"]) && $user[11]["tuvanvien1"]["monthSalary"] == 1) ? true : null, ['class' => 'tab1_tuvanvien1_monthSalary', "disabled" => ""]) !!}
+					Dưới 5 triệu đồng/tháng</label>
+				<label>
+                    {!! Form::radio('tab[1][tuvanvien1][monthSalary]', 2, (!empty($user[11]["tuvanvien1"]["monthSalary"]) && $user[11]["tuvanvien1"]["monthSalary"] == 2) ? true : null, ['class' => 'tab1_tuvanvien1_monthSalary', "disabled" => ""]) !!}
+					Từ 5 triệu đồng đến dưới 10 triệu đồng/tháng</label>
+				<label>
+                    {!! Form::radio('tab[1][tuvanvien1][monthSalary]', 3, (!empty($user[11]["tuvanvien1"]["monthSalary"]) && $user[11]["tuvanvien1"]["monthSalary"] == 3) ? true : null, ['class' => 'tab1_tuvanvien1_monthSalary', "disabled" => ""]) !!}
+					Từ 10 triệu đồng đến dưới 15 triệu đồng/tháng</label>
+                <label>
+                    {!! Form::radio('tab[1][tuvanvien1][monthSalary]', 4, (!empty($user[11]["tuvanvien1"]["monthSalary"]) && $user[11]["tuvanvien1"]["monthSalary"] == 4) ? true : null, ['class' => 'tab1_tuvanvien1_monthSalary', "disabled" => ""]) !!}
+					Trên 15 triệu đồng/tháng</label>
+			</div>
+		</div>
+
 		<div class="control-group">
-			<label class="control-label-custom">12. Bạn nghe nói về PrEP qua kênh nào?</label>
+			<label class="control-label-custom">13. Bạn nghe nói về PrEP qua kênh nào?</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][howDoYouKnowPrep]", !empty($user[11]["tuvanvien1"]["howDoYouKnowPrep"]) ? $user[11]["tuvanvien1"]["howDoYouKnowPrep"] : "" ) !!}
                 <label>
@@ -221,8 +240,22 @@
 				</label>
 			</div>
 		</div>
+
+        <div class="control-group">
+			<label class="control-label-custom">14. Đủ tiêu chuẩn hành vi để tiếp tục tham gia đánh giá lâm sàng </label>
+			<div class="controls-custom">
+                {!! Form::hidden("tab[1][tuvanvien1][checkCondition]", !empty($user[11]["tuvanvien1"]["checkCondition"]) ? $user[11]["tuvanvien1"]["checkCondition"] : "" ) !!}
+                <label>
+                    {!! Form::radio('tab[1][tuvanvien1][checkCondition]', 1, (!empty($user[11]["tuvanvien1"]["checkCondition"]) && $user[11]["tuvanvien1"]["checkCondition"] == 1) ? true : null, ['class' => 'tab1_tuvanvien1_checkCondition', "disabled" => ""]) !!}
+					Đủ tiêu chuẩn, tiếp tục thực hiện các xét nghiệm đánh giá lâm sàng.</label>
+				<label>
+                    {!! Form::radio('tab[1][tuvanvien1][checkCondition]', 2, (!empty($user[11]["tuvanvien1"]["checkCondition"]) && $user[11]["tuvanvien1"]["checkCondition"] == 2) ? true : null, ['class' => 'tab1_tuvanvien1_checkCondition', "disabled" => ""]) !!}
+					Không đủ tiêu chuẩn hành vi, chấm dứt.</label>
+			</div>
+		</div>
+
 		<div class="control-group">
-			<label class="control-label-custom">13. Các nhận xét khác</label>
+			<label class="control-label-custom">15. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[1][tuvanvien1][otherComment]", $user[11]["tuvanvien1"]["otherComment"], ["id" => "tab[1][tuvanvien1][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>
@@ -230,7 +263,7 @@
 	</div>
 </div>
 
-<div class="widget-box">
+<div class="widget-box" id="div-bacsi" style="{{(!empty($user[11]["tuvanvien1"]["checkCondition"]) && $user[11]["tuvanvien1"]["checkCondition"] == 2) ? "display: none;" : "" }}">
 	<div class="widget-title title-bacsi"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tên bác sĩ</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
@@ -324,7 +357,7 @@
 	</div>
 </div>
 
-<div class="widget-box">
+<div class="widget-box" id="div-tuvanvien3" style="{{((!empty($user[11]["tuvanvien1"]["checkCondition"]) && $user[11]["tuvanvien1"]["checkCondition"] == 2) || (!empty($user[11]["bacsi"]["checkCondition"]) && $user[11]["bacsi"]["checkCondition"] == 2)) ? "display: none;" : "" }}">
 	<div class="widget-title title-tuvanvien3"> <span class="icon"><i class="icon-th"></i></span>
 		<h5>Tư vấn viên</h5>
 		<div class="span3" style="margin: 3px 0px 0px;float: left;">
@@ -347,6 +380,10 @@
 				<label>
 					{!! Form::checkbox("tab[1][tuvanvien3][accept_prep]", 2, (!empty($user[11]["tuvanvien3"]["accept_prep"]) && $user[11]["tuvanvien3"]["accept_prep"] == 2) ? true : null, ["class" => "tab1_tuvanvien3_accept_prep", "disabled" => ""]) !!}
 					Không</label>
+                <label id="cancelReason" style="{{(empty($user[11]["tuvanvien3"]["accept_prep"]) || $user[11]["tuvanvien3"]["accept_prep"] == 1) ? "display: none;" : "" }}">
+					Lý do từ chối tham gia<br/>
+					{!! Form::text("tab[1][tuvanvien3][otherReasonText]", !empty($user[11]["tuvanvien3"]["otherReasonText"]) ? $user[11]["tuvanvien3"]["otherReasonText"]:"", ["id" => "tab1_tuvanvien3_otherReasonText", "class" => "span10", "readonly" => ""]) !!}
+				</label>
 			</div>
 		</div>
 		<div class="control-group">
