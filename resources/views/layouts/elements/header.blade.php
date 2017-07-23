@@ -1,5 +1,7 @@
 <div id="header">
   <h1><a href="dashboard.html">Matrix Admin</a></h1>
+
+  <h2><a href="dashboard.html">CARMAH Logo</a></h2>
 </div>
 <!--close-Header-part-->
 

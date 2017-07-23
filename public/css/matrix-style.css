@@ -65,6 +65,20 @@ hr{ border-top-color:#dadada;margin: 10px 0px;}
 #header h1 a {
 	display: block;
 }
+/* Style for Logo CARMAH */
+#header h2 {
+	background: url("../img/CARMAH_logo.png") no-repeat scroll 0 0 transparent;
+	height: 35px;
+	left: 230px;
+	line-height: 600px;
+	overflow: hidden;
+	position: relative;
+	top: -42px;
+	width: 173px;
+}
+#header h2 a {
+	display: block;
+}
 /* Search input */
 #search {
 	position: absolute;
@@ -1282,7 +1296,14 @@ form {
 }
 /* Responsive design */
 @media (max-width: 480px) {
+#header {
+	height: 120px;
+}
 #header h1 {
+	top: 10px; left:5px;
+	margin: 3px auto;
+}
+#header h2 {
 	top: 10px; left:5px;
 	margin: 3px auto;
 }
@@ -1477,6 +1498,9 @@ body {
 }
 #header h1 {
 	top:0px; left:35px;
+}
+#header h2 {
+	top:-45px; left:230px;
 }
 #search {
 	top:5px
