@@ -27,8 +27,9 @@
 		<div class="control-group">
 			<label class="control-label-custom">2. Năm sinh</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[1][tuvanvien1][birthyear]", $user[11]["tuvanvien1"]["birthyear"], ["id" => "tab[1][tuvanvien1][birthyear]", "readonly" => ""]) !!}
-			</div>
+                {!! Form::hidden("tab[1][tuvanvien1][birthyear]", !empty($user[11]["tuvanvien1"]["birthyear"]) ? $user[11]["tuvanvien1"]["birthyear"] : "" ) !!}
+                {!! Form::select("tab[1][tuvanvien1][birthyear]", UserHelper::getBirthYearOptions(), $user[11]["tuvanvien1"]["birthyear"], ["id" => "tab[1][tuvanvien1][birthyear]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+            </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">3. Giới tính</label>
@@ -73,7 +74,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">6. Bạn có nhận tiền hoặc hiện vật để đổi lấy quan hệ tình dục trong 12 tháng qua:</label>
+			<label class="control-label-custom">6. Bạn có nhận tiền hoặc hiện vật để đổi lấy quan hệ tình dục trong 3 tháng qua:</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][hasSexForCash]", !empty($user[11]["tuvanvien1"]["hasSexForCash"]) ? $user[11]["tuvanvien1"]["hasSexForCash"] : "" ) !!}
                 <label>
@@ -88,7 +89,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">7. Bạn có mắc bệnh lây truyền qua đường tình dục trong 12 tháng qua không?</label>
+			<label class="control-label-custom">7. Bạn có mắc bệnh lây truyền qua đường tình dục trong 3 tháng qua không?</label>
 			<div class="controls-custom">
 				<label class="control-sublabel-custom">a. Giang mai</label>
 				{!! Form::hidden("tab[1][tuvanvien1][hasGiangMaiInLastYear]", !empty($user[11]["tuvanvien1"]["hasGiangMaiInLastYear"]) ? $user[11]["tuvanvien1"]["hasGiangMaiInLastYear"] : "" ) !!}
@@ -310,7 +311,7 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][chucnangthanResultDate]", $user[11]["bacsi"]["chucnangthanResultDate"], ["id" => "tab[1][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::select("tab[1][bacsi][chucnangthanResult]", UserHelper::$optionResult, $user[11]["bacsi"]["chucnangthanResult"], ["id" => "tab[1][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::select("tab[1][bacsi][chucnangthanResult]", UserHelper::$optionResult5, $user[11]["bacsi"]["chucnangthanResult"], ["id" => "tab[1][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
 				{!! Form::hidden("tab[1][bacsi][chucnangthanResult]", !empty($user[11]["bacsi"]["chucnangthanResult"]) ? $user[11]["bacsi"]["chucnangthanResult"] : "" ) !!}
 			</div>
 		</div>
@@ -349,13 +350,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">2. Mã bệnh nhân (Tư vấn viên đưa cho khách hàng thẻ khách hàng và ghi lại số mã bệnh nhân)</label>
-			<div class="controls-custom">
-                {!! Form::text("tab[1][tuvanvien3][maBenhNhan]", $user[11]["tuvanvien3"]["maBenhNhan"], ["id" => "tab[1][tuvanvien3][maBenhNhan]", "readonly" => ""]) !!}
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label-custom">3. Các nhận xét khác</label>
+			<label class="control-label-custom">2. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[1][tuvanvien3][otherComment]", $user[11]["tuvanvien3"]["otherComment"], ["id" => "tab[1][tuvanvien3][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>

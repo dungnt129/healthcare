@@ -87,7 +87,7 @@ class UserHelper {
 		],
 		"bacsi" => [
 			"fastHIVresult" => [
-				1 => "Âm tính",
+				1 => "Không phản ứng",
 				2 => "Có phản ứng"
 			],
 			"confirmHIVresult" => [
@@ -115,8 +115,9 @@ class UserHelper {
 				2 => "Dương tính"
 			],
 			"chucnangthanResult" => [
-				1 => "Âm tính",
-				2 => "Dương tính"
+				1  => "Độ thanh thải bình thường",
+                2  => "Độ thanh thải tăng",
+                3  => "Độ thanh thải thấp",
 			]
 		],
 		"tuvanvien3" => [
@@ -173,8 +174,8 @@ class UserHelper {
 				2 => "Dương tính"
 			],
 			"poisonGanResult" => [
-				1 => "Âm tính",
-				2 => "Dương tính"
+				1 => "Bình thường",
+				2 => "Tăng cao"
 			]
 		],
 		"tuvanvien3" => [
@@ -197,7 +198,7 @@ class UserHelper {
 
 	static $optionResult2 = [
 		"" => "Kết quả",
-		1  => "Âm tính",
+		1  => "Không phản ứng",
 		2  => "Có phản ứng"
 	];
 
@@ -215,6 +216,19 @@ class UserHelper {
 		3  => "Phản ứng cấp độ 2",
 		4  => "Phản ứng cấp độ 3",
 		5  => "Phản ứng cấp độ 4"
+	];
+
+    static $optionResult5 = [
+		"" => "Kết quả",
+		1  => "Độ thanh thải bình thường",
+		2  => "Độ thanh thải tăng",
+		3  => "Độ thanh thải thấp",
+	];
+
+    static $optionResult6 = [
+		"" => "Kết quả",
+		1  => "Bình thường",
+		2  => "Tăng cao"
 	];
 
 	/**
@@ -480,5 +494,11 @@ class UserHelper {
 
 	public static function getOption($data) {
 		return !empty($data) ? $data : null;
+	}
+
+    public static function getBirthYearOptions() {
+        $birthYears = ["" => ""] + array_combine(range(2000,1950), range(2000,1950));
+
+		return $birthYears;
 	}
 }

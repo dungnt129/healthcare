@@ -41,6 +41,12 @@
 			</div>
 		</div>
 		@endif
+        <div class="control-group">
+			<label class="control-label">Mã UIC của khách hàng</label>
+			<div class="controls">
+				{!! Form::text("tab[1][tuvanvien3][maBenhNhan]", $user[11]["tuvanvien3"]["maBenhNhan"], ["id" => "tab[1][tuvanvien3][maBenhNhan]"]) !!}
+			</div>
+		</div>
 		<div class="control-group">
 			<label class="control-label">Tên khách hàng</label>
 			<div class="controls">

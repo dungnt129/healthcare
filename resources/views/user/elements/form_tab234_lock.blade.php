@@ -14,7 +14,7 @@
 		<div class="control-group">
 			<label class="control-label-custom">1. Số viên thuốc đã uống kể từ lần hẹn trước:</label>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">Con số báo cáo</label>
+				<label class="control-sublabel-custom">Con số khách hàng báo cáo</label>
                 {!! Form::text("tab[{$tab}][tuvanvien1][report_number]", !empty($user[$index]["tuvanvien1"]["report_number"]) ? $user[$index]["tuvanvien1"]["report_number"] : "", ["id" => "tab[{$tab}][tuvanvien1][report_number]", "readonly" => ""]) !!}
 			</div>
 			<div class="controls-custom">
@@ -232,7 +232,7 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResultDate]", !empty($user[$index]["bacsi"]["chucnangthanResultDate"]) ? $user[$index]["bacsi"]["chucnangthanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::select("tab[{$tab}][bacsi][chucnangthanResult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][chucnangthanResult]", UserHelper::$optionResult5, !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
 				{!! Form::hidden("tab[{$tab}][bacsi][chucnangthanResult]", !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "" ) !!}
 			</div>
 		</div>
@@ -272,11 +272,11 @@
 			'6' => 7
 		];?>
 		<div class="control-group">
-			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 3  }}. Nhiễm độc gan: Mức AST và ALT (tại các tháng 3,6,12)</label>
+			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 4 }}. Nhiễm độc gan: Mức AST và ALT</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][poisonGanResultDate]", !empty($user[$index]["bacsi"]["poisonGanResultDate"]) ? $user[$index]["bacsi"]["poisonGanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::select("tab[{$tab}][bacsi][poisonGanResult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][poisonGanResult]", UserHelper::$optionResult6, !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
 				{!! Form::hidden("tab[{$tab}][bacsi][poisonGanResult]", !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "" ) !!}
 			</div>
 		</div>
@@ -286,7 +286,7 @@
 			'6' => 8
 		];?>
 		<div class="control-group">
-			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 4  }}. Các nhận xét khác</label>
+			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 5  }}. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[{$tab}][bacsi][otherComment]", !empty($user[$index]["bacsi"]["otherComment"]) ? $user[$index]["bacsi"]["otherComment"] : "", ["id" => "tab[{$tab}][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>

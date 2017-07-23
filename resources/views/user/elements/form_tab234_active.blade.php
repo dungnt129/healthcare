@@ -14,12 +14,12 @@
 		<div class="control-group">
 			<label class="control-label-custom">1. Số viên thuốc đã uống kể từ lần hẹn trước:</label>
 			<div class="controls-custom">
-				<label class="control-sublabel-custom">Con số báo cáo</label>
-                {!! Form::text("tab[{$tab}][tuvanvien1][report_number]", !empty($user[$index]["tuvanvien1"]["report_number"]) ? $user[$index]["tuvanvien1"]["report_number"] : "", ["id" => "tab[{$tab}][tuvanvien1][report_number]"]) !!}
+				<label class="control-sublabel-custom">Con số khách hàng báo cáo</label>
+                {!! Form::text("tab[{$tab}][tuvanvien1][report_number]", !empty($user[$index]["tuvanvien1"]["report_number"]) ? $user[$index]["tuvanvien1"]["report_number"] : "", ["id" => "tab[{$tab}][tuvanvien1][report_number]", "class" => "numeric"]) !!}
 			</div>
 			<div class="controls-custom">
 				<label class="control-sublabel-custom">Con số quan sát được (dựa trên việc đếm số viên còn lại)</label>
-                {!! Form::text("tab[{$tab}][tuvanvien1][real_number]", !empty($user[$index]["tuvanvien1"]["real_number"]) ? $user[$index]["tuvanvien1"]["real_number"] : "", ["id" => "tab[{$tab}][tuvanvien1][real_number]"]) !!}
+                {!! Form::text("tab[{$tab}][tuvanvien1][real_number]", !empty($user[$index]["tuvanvien1"]["real_number"]) ? $user[$index]["tuvanvien1"]["real_number"] : "", ["id" => "tab[{$tab}][tuvanvien1][real_number]", "class" => "numeric"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -134,11 +134,11 @@
 			<label class="control-label-custom">3. Các hành vi nguy cơ:</label>
 			<div class="controls-custom">
 				<label class="control-sublabel-custom">a. Bạn có quan hệ tình dục với bao nhiêu bạn tình nam trong vòng 3 tháng qua?</label>
-                {!! Form::text("tab[{$tab}][tuvanvien1][howManySexFriends]", isset($user[$index]["tuvanvien1"]["howManySexFriends"]) ? $user[$index]["tuvanvien1"]["howManySexFriends"] : "", ["id" => "tab{$tab}_tuvanvien1_howManySexFriends"]) !!}
+                {!! Form::text("tab[{$tab}][tuvanvien1][howManySexFriends]", isset($user[$index]["tuvanvien1"]["howManySexFriends"]) ? $user[$index]["tuvanvien1"]["howManySexFriends"] : "", ["id" => "tab{$tab}_tuvanvien1_howManySexFriends", "class" => "numeric"]) !!}
 			</div>
 			<div class="controls-custom {{ empty($user[$index]["tuvanvien1"]["howManySexFriends"]) ? "sub-question" : "" }}" id="question_tab{{$tab}}_tuvanvien1_howManyAssSexFriends">
 				<label class="control-sublabel-custom">b. Trong số đó, bạn quan hệ tình dục đường hậu môn với bao nhiêu người trong 3 tháng qua?</label>
-                {!! Form::text("tab[{$tab}][tuvanvien1][howManyAssSexFriends]", isset($user[$index]["tuvanvien1"]["howManyAssSexFriends"]) ? $user[$index]["tuvanvien1"]["howManyAssSexFriends"] : "", ["id" => "tab{$tab}_tuvanvien1_howManyAssSexFriends"]) !!}
+                {!! Form::text("tab[{$tab}][tuvanvien1][howManyAssSexFriends]", isset($user[$index]["tuvanvien1"]["howManyAssSexFriends"]) ? $user[$index]["tuvanvien1"]["howManyAssSexFriends"] : "", ["id" => "tab{$tab}_tuvanvien1_howManyAssSexFriends", "class" => "numeric"]) !!}
 			</div>
 			<div class="controls-custom {{ empty($user[$index]["tuvanvien1"]["howManyAssSexFriends"]) ? "sub-question" : "" }}" id="question_tab{{$tab}}_tuvanvien1_hasCondomWhenAssSex">
 				<label class="control-sublabel-custom">c. Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn với bạn tình nam không?</label>
@@ -223,7 +223,7 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][chucnangthanResultDate]", !empty($user[$index]["bacsi"]["chucnangthanResultDate"]) ? $user[$index]["bacsi"]["chucnangthanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
-				{!! Form::select("tab[{$tab}][bacsi][chucnangthanResult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5"]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][chucnangthanResult]", UserHelper::$optionResult5, !empty($user[$index]["bacsi"]["chucnangthanResult"]) ? $user[$index]["bacsi"]["chucnangthanResult"] : "", ["id" => "tab[{$tab}][bacsi][chucnangthanResult]", "class" => "span2 margin-right5"]) !!}
 			</div>
 		</div>
 		@endif
@@ -259,11 +259,11 @@
 			'6' => 7
 		];?>
 		<div class="control-group">
-			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 3  }}. Nhiễm độc gan: Mức AST và ALT (tại các tháng 3,6,12)</label>
+			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 4  }}. Nhiễm độc gan: Mức AST và ALT</label>
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][poisonGanResultDate]", !empty($user[$index]["bacsi"]["poisonGanResultDate"]) ? $user[$index]["bacsi"]["poisonGanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
-				{!! Form::select("tab[{$tab}][bacsi][poisonGanResult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5"]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][poisonGanResult]", UserHelper::$optionResult6, !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5"]) !!}
 			</div>
 		</div>
 		<?php
@@ -272,7 +272,7 @@
 			'6' => 8
 		];?>
 		<div class="control-group">
-			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 4  }}. Các nhận xét khác</label>
+			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 5  }}. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[{$tab}][bacsi][otherComment]", !empty($user[$index]["bacsi"]["otherComment"]) ? $user[$index]["bacsi"]["otherComment"] : "", ["id" => "tab[{$tab}][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5"]) !!}
 			</div>

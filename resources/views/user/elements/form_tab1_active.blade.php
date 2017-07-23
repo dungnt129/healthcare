@@ -26,8 +26,8 @@
 		<div class="control-group">
 			<label class="control-label-custom">2. Năm sinh</label>
 			<div class="controls-custom">
-				{!! Form::text("tab[1][tuvanvien1][birthyear]", $user[11]["tuvanvien1"]["birthyear"], ["id" => "tab[1][tuvanvien1][birthyear]"]) !!}
-			</div>
+                {!! Form::select("tab[1][tuvanvien1][birthyear]", UserHelper::getBirthYearOptions(), $user[11]["tuvanvien1"]["birthyear"], ["id" => "tab[1][tuvanvien1][birthyear]", "class" => "span2 margin-right5"]) !!}
+            </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label-custom">3. Giới tính</label>
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">6. Bạn có nhận tiền hoặc hiện vật để đổi lấy quan hệ tình dục trong 12 tháng qua:</label>
+			<label class="control-label-custom">6. Bạn có nhận tiền hoặc hiện vật để đổi lấy quan hệ tình dục trong 3 tháng qua:</label>
 			<div class="controls-custom">
                 <label>
 					{!! Form::checkbox("tab[1][tuvanvien1][hasSexForCash]", 1, (!empty($user[11]["tuvanvien1"]["hasSexForCash"]) && $user[11]["tuvanvien1"]["hasSexForCash"] == 1) ? true : null, ["class" => "tab1_tuvanvien1_hasSexForCash"]) !!}
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">7. Bạn có mắc bệnh lây truyền qua đường tình dục trong 12 tháng qua không?</label>
+			<label class="control-label-custom">7. Bạn có mắc bệnh lây truyền qua đường tình dục trong 3 tháng qua không?</label>
 			<div class="controls-custom">
 				<label class="control-sublabel-custom">a. Giang mai</label>
                 <label>
@@ -122,11 +122,11 @@
 			<label class="control-label-custom">8. Các hành vi nguy cơ:</label>
 			<div class="controls-custom">
 				<label class="control-sublabel-custom">a. Bạn có quan hệ tình dục với bao nhiêu bạn tình nam trong vòng 3 tháng qua?</label>
-                {!! Form::text("tab[1][tuvanvien1][howManySexFriends]", $user[11]["tuvanvien1"]["howManySexFriends"], ["id" => "tab1_tuvanvien1_howManySexFriends"]) !!}
+                {!! Form::text("tab[1][tuvanvien1][howManySexFriends]", $user[11]["tuvanvien1"]["howManySexFriends"], ["id" => "tab1_tuvanvien1_howManySexFriends", "class" => "numeric"]) !!}
 			</div>
 			<div class="controls-custom {{ empty($user[11]["tuvanvien1"]["howManySexFriends"]) ? "sub-question" : "" }}" id="question_tab1_tuvanvien1_howManyAssSexFriends">
 				<label class="control-sublabel-custom">b. Trong số đó, bạn quan hệ tình dục đường hậu môn với bao nhiêu người trong 3 tháng qua?</label>
-                {!! Form::text("tab[1][tuvanvien1][howManyAssSexFriends]", $user[11]["tuvanvien1"]["howManyAssSexFriends"], ["id" => "tab1_tuvanvien1_howManyAssSexFriends"]) !!}
+                {!! Form::text("tab[1][tuvanvien1][howManyAssSexFriends]", $user[11]["tuvanvien1"]["howManyAssSexFriends"], ["id" => "tab1_tuvanvien1_howManyAssSexFriends", "class" => "numeric"]) !!}
 			</div>
 			<div class="controls-custom {{ empty($user[11]["tuvanvien1"]["howManyAssSexFriends"]) ? "sub-question" : "" }}" id="question_tab1_tuvanvien1_hasCondomWhenAssSex">
 				<label class="control-sublabel-custom">c. Bạn có sử dụng bao cao su trong lần quan hệ tình dục gần đây nhất qua đường hậu môn với bạn tình nam không?</label>
@@ -289,7 +289,7 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[1][bacsi][chucnangthanResultDate]", $user[11]["bacsi"]["chucnangthanResultDate"], ["id" => "tab[1][bacsi][chucnangthanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy"]) !!}
-				{!! Form::select("tab[1][bacsi][chucnangthanResult]", UserHelper::$optionResult, $user[11]["bacsi"]["chucnangthanResult"], ["id" => "tab[1][bacsi][chucnangthanResult]", "class" => "span2 margin-right5"]) !!}
+				{!! Form::select("tab[1][bacsi][chucnangthanResult]", UserHelper::$optionResult5, $user[11]["bacsi"]["chucnangthanResult"], ["id" => "tab[1][bacsi][chucnangthanResult]", "class" => "span2 margin-right5"]) !!}
 			</div>
 		</div>
 		<div class="control-group">
@@ -329,13 +329,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">2. Mã bệnh nhân (Tư vấn viên đưa cho khách hàng thẻ khách hàng và ghi lại số mã bệnh nhân)</label>
-			<div class="controls-custom">
-                {!! Form::text("tab[1][tuvanvien3][maBenhNhan]", $user[11]["tuvanvien3"]["maBenhNhan"], ["id" => "tab[1][tuvanvien3][maBenhNhan]"]) !!}
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label-custom">3. Các nhận xét khác</label>
+			<label class="control-label-custom">2. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[1][tuvanvien3][otherComment]", $user[11]["tuvanvien3"]["otherComment"], ["id" => "tab[1][tuvanvien3][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5"]) !!}
 			</div>
