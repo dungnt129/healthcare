@@ -165,7 +165,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">9. Bạn có sử dụng ma túy tổng hợp (ví dụ: ma túy đá, Thuốc lắc) trong 12 tháng qua không:</label>
+			<label class="control-label-custom">9. Bạn có tiêm chích ma túy trong 3 tháng qua không?</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][hasCocainInLastYear]", !empty($user[11]["tuvanvien1"]["hasCocainInLastYear"]) ? $user[11]["tuvanvien1"]["hasCocainInLastYear"] : "" ) !!}
                 <label>
@@ -180,14 +180,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label-custom">10. Bạn có sử dụng ma túy nào khác trong 12 tháng qua không?</label>
-			<div class="controls-custom">
-				{!! Form::hidden("tab[1][tuvanvien1][hasAnotherCocainLastYear]", !empty($user[11]["tuvanvien1"]["hasAnotherCocainLastYear"]) ? $user[11]["tuvanvien1"]["hasAnotherCocainLastYear"] : "" ) !!}
-                {!! Form::select("tab[1][tuvanvien1][hasAnotherCocainLastYear]", UserHelper::$optionResult3, $user[11]["tuvanvien1"]["hasAnotherCocainLastYear"], ["id" => "tab[1][tuvanvien1][hasAnotherCocainLastYear]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label-custom">11. Bạn có sẵn sàng tự trả tiền thuốc PrEP sau 1 năm sử dụng không?</label>
+			<label class="control-label-custom">10. Bạn có sẵn sàng tự trả tiền thuốc PrEP sau 1 năm sử dụng không?</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][hasPaidForPrEP]", !empty($user[11]["tuvanvien1"]["hasPaidForPrEP"]) ? $user[11]["tuvanvien1"]["hasPaidForPrEP"] : "" ) !!}
                 <label>
@@ -203,7 +196,7 @@
 		</div>
 
         <div class="control-group">
-			<label class="control-label-custom">12. Thu nhập trung bình một tháng của bạn là bao nhiêu: </label>
+			<label class="control-label-custom">11. Thu nhập trung bình một tháng của bạn là bao nhiêu: </label>
 			<div class="controls-custom">
                 {!! Form::hidden("tab[1][tuvanvien1][monthSalary]", !empty($user[11]["tuvanvien1"]["monthSalary"]) ? $user[11]["tuvanvien1"]["monthSalary"] : "" ) !!}
                 <label>
@@ -222,7 +215,7 @@
 		</div>
 
 		<div class="control-group">
-			<label class="control-label-custom">13. Bạn nghe nói về PrEP qua kênh nào?</label>
+			<label class="control-label-custom">12. Bạn nghe nói về PrEP qua kênh nào?</label>
 			<div class="controls-custom">
 				{!! Form::hidden("tab[1][tuvanvien1][howDoYouKnowPrep]", !empty($user[11]["tuvanvien1"]["howDoYouKnowPrep"]) ? $user[11]["tuvanvien1"]["howDoYouKnowPrep"] : "" ) !!}
                 <label>
@@ -242,7 +235,7 @@
 		</div>
 
         <div class="control-group">
-			<label class="control-label-custom">14. Đủ tiêu chuẩn hành vi để tiếp tục tham gia đánh giá lâm sàng </label>
+			<label class="control-label-custom">13. Đủ tiêu chuẩn hành vi để tiếp tục tham gia đánh giá lâm sàng </label>
 			<div class="controls-custom">
                 {!! Form::hidden("tab[1][tuvanvien1][checkCondition]", !empty($user[11]["tuvanvien1"]["checkCondition"]) ? $user[11]["tuvanvien1"]["checkCondition"] : "" ) !!}
                 <label>
@@ -255,7 +248,7 @@
 		</div>
 
 		<div class="control-group">
-			<label class="control-label-custom">15. Các nhận xét khác</label>
+			<label class="control-label-custom">14. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[1][tuvanvien1][otherComment]", $user[11]["tuvanvien1"]["otherComment"], ["id" => "tab[1][tuvanvien1][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>

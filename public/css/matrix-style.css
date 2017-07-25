@@ -1674,7 +1674,10 @@ div.dataTables_wrapper .ui-widget-header {
   opacity: 0;
 }
 
-.square img {width: 215px; height: 215px;}
+.square img {
+	width: 350px;
+	/* height: 250px; */
+}
 .tab-content {clear: both !important;}
 
 

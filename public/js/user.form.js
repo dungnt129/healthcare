@@ -8,8 +8,16 @@ $(function () {
 	// Validate when submit form
 	$("#basic_validate").submit(function() {
 		// Validate
+		var regexCheck = /^([a-z]{7}[0-9]{4})$/;
+		var maUIC = $('input[name=tab\\[1\\]\\[tuvanvien3\\]\\[maBenhNhan\\]]').val();
 		var checkAcceptPrep = $('input[name=tab\\[1\\]\\[tuvanvien3\\]\\[accept_prep\\]]:checked').val();
 		var otherReasonText = $("#tab1_tuvanvien3_otherReasonText");
+
+		if(maUIC != '' && !regexCheck.test(maUIC)) {
+			alert("Hãy nhập Mã UIC của khách hàng theo định dạng: 7 kí tự & 4 chữ số, tất cả viết thường");
+			$("#tab\\[1\\]\\[tuvanvien3\\]\\[maBenhNhan\\]").focus();
+			return false;
+		}
 
 		if(checkAcceptPrep == 2 && otherReasonText.val() == "") {
 			alert("Hãy nhập lý do từ chối tham gia dự án PrEP");

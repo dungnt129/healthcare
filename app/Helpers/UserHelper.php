@@ -161,8 +161,8 @@ class UserHelper {
 		],
 		"bacsi" => [
 			"fastHIVresult" => [
-				1 => "Âm tính",
-				2 => "Dương tính"
+				1 => "Không phản ứng",
+				2 => "Có phản ứng"
 			],
 			"confirmHIVresult" => [
 				1 => "Âm tính",

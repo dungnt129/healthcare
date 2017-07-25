@@ -213,7 +213,7 @@
 			<div class="controls-custom">
 				<span>Ngày xét nghiệm</span>
 				{!! Form::text("tab[{$tab}][bacsi][fastHIVresultdate]", !empty($user[$index]["bacsi"]["fastHIVresultdate"]) ? $user[$index]["bacsi"]["fastHIVresultdate"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresultdate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::select("tab[{$tab}][bacsi][fastHIVresult]", UserHelper::$optionResult, !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
+				{!! Form::select("tab[{$tab}][bacsi][fastHIVresult]", UserHelper::$optionResult2, !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "", ["id" => "tab[{$tab}][bacsi][fastHIVresult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
 				{!! Form::hidden("tab[{$tab}][bacsi][fastHIVresult]", !empty($user[$index]["bacsi"]["fastHIVresult"]) ? $user[$index]["bacsi"]["fastHIVresult"] : "" ) !!}
 			</div>
 		</div>
