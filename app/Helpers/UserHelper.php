@@ -453,7 +453,7 @@ class UserHelper {
 
 		if(empty($user)) return $result;
 
-		return (!empty($user[7]) || !empty($user[9]) || !empty($user[11]) || !empty($user[13]));
+		return (!empty($user[12]) || !empty($user[14]) || !empty($user[16]) || !empty($user[18]) || !empty($user[20]) || !empty($user[22]) || !empty($user[24]) || !empty($user[26]) || !empty($user[28]));
 	}
 
 	public static function getShowDataDay1($data, $group, $key) {
