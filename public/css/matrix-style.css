@@ -1651,7 +1651,7 @@ div.dataTables_wrapper .ui-widget-header {
 .title-bacsi { background: #28b779 !important;color: #fff;}
 .title-tuvanvien3 { background: #27a9e3 !important;color: #fff;}
 .title-tuvanvien1 h5, .title-bacsi h5, .title-tuvanvien3 h5 { color: #fff !important;}
-.sub-question {display: none;}
+.sub-question, .hide {display: none;}
 
 .center-cropped {
   width: 200px;

@@ -24,6 +24,39 @@ $(function () {
 			otherReasonText.focus();
 			return false;
 		}
+
+		if(checkAcceptPrep == 2 && /^\d+$/.test(otherReasonText.val())) {
+			alert("Lý do từ chối không được phép nhập số");
+			otherReasonText.focus();
+			return false;
+		}
+
+		// Validate subquestion
+		var falseId = '';
+		var checkSubQuestion = true;
+		var arrTabId = [1,2,3,4,5,6,7,8];
+
+		arrTabId.forEach(function(id) {
+			var howManySexFriends = $("#tab" + id + "_tuvanvien1_howManySexFriends").val();
+			var howManyAssSexFriends = $("#tab" + id + "_tuvanvien1_howManyAssSexFriends").val();
+
+			if(howManySexFriends != '' && howManyAssSexFriends != '' && howManyAssSexFriends > howManySexFriends) {
+				// Set check false
+				checkSubQuestion = false;
+				falseId = id;
+
+				// Break foreach
+				return false;
+			}
+
+		});
+
+		if(!checkSubQuestion) {
+			alert("Tab " + falseId + " - Câu b phải có số nhỏ hơn hoặc bằng hơn câu a");
+			$("#tab" + falseId + "_tuvanvien1_howManyAssSexFriends").focus();
+			return false;
+		}
+
 	});
 
 	/* Tab 1 */
@@ -32,22 +65,35 @@ $(function () {
             $("#div-bacsi").fadeIn();
 			// Check condition to show tuvanvien3 div
 			var bacsiCheckCondition = $('input[name=tab\\[1\\]\\[bacsi\\]\\[checkCondition\\]]:checked').val();
-			if(bacsiCheckCondition == 1) {
+
+			if(bacsiCheckCondition != 2) {
 				$("#div-tuvanvien3").fadeIn();
+			}
+
+			// Hide all other tabs
+			if(bacsiCheckCondition == 2) {
+				$(".li-tab").hide();
+			} else {
+				$(".li-tab").show();
 			}
         }
         else if (this.value == 2) {
             $("#div-bacsi").fadeOut();
 			$("#div-tuvanvien3").fadeOut();
+			// Hide all other tabs
+			$(".li-tab").hide();
         }
     });
 
 	$('input[name=tab\\[1\\]\\[bacsi\\]\\[checkCondition\\]]').change(function() {
         if (this.value == 1) {
 			$("#div-tuvanvien3").fadeIn();
+			$(".li-tab").show();
         }
         else if (this.value == 2) {
 			$("#div-tuvanvien3").fadeOut();
+			// Hide all other tabs
+			$(".li-tab").hide();
         }
     });
 
