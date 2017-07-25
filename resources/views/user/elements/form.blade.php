@@ -115,14 +115,14 @@
 		<div class="widget-title">
 			<ul class="nav nav-tabs">
 				<li id="li-tab1" class="{{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Cuộc hẹn đầu tiên</a></li>
-				<li id="li-tab2" class="li-tab @if($isDisableOtherTabs) hide @endif  {{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tháng thứ 1</a></li>
-				<li id="li-tab3" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tháng thứ 3</a></li>
-				<li id="li-tab4" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tháng thứ 6</a></li>
-				<li id="li-tab5" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">Tháng thứ 9</a></li>
-				<li id="li-tab6" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">Tháng thứ 12</a></li>
-				<li id="li-tab7" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">Tháng thứ 15</a></li>
-				<li id="li-tab8" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">Tháng thứ 18</a></li>
-				<li id="li-tab9" class="li-tab @if($isDisableOtherTabs) hide @endif {{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">Các cuộc hẹn khác</a></li>
+				<li id="li-tab2" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif  {{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tháng thứ 1</a></li>
+				<li id="li-tab3" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tháng thứ 3</a></li>
+				<li id="li-tab4" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tháng thứ 6</a></li>
+				<li id="li-tab5" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">Tháng thứ 9</a></li>
+				<li id="li-tab6" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">Tháng thứ 12</a></li>
+				<li id="li-tab7" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">Tháng thứ 15</a></li>
+				<li id="li-tab8" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">Tháng thứ 18</a></li>
+				<li id="li-tab9" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">Các cuộc hẹn khác</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">
