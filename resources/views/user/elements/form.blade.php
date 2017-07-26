@@ -114,43 +114,43 @@
 	<div class="widget-box" style="border-left: 0px; border-right: 0px;">
 		<div class="widget-title">
 			<ul class="nav nav-tabs">
-				<li id="li-tab1" class="{{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Cuộc hẹn đầu tiên</a></li>
-				<li id="li-tab2" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif  {{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tháng thứ 1</a></li>
-				<li id="li-tab3" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tháng thứ 3</a></li>
-				<li id="li-tab4" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tháng thứ 6</a></li>
-				<li id="li-tab5" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">Tháng thứ 9</a></li>
-				<li id="li-tab6" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">Tháng thứ 12</a></li>
-				<li id="li-tab7" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">Tháng thứ 15</a></li>
-				<li id="li-tab8" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">Tháng thứ 18</a></li>
-				<li id="li-tab9" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">Các cuộc hẹn khác</a></li>
+				<li id="li-tab1" class="{{ empty($user[0]) || empty($user[12]) || !empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab1">Cuộc hẹn đầu tiên</a></li>
+				<li id="li-tab2" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif  {{ !empty($user[12]) && empty($user[14]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab2">Tháng thứ 1</a></li>
+				<li id="li-tab3" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[14]) && empty($user[16]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab3">Tháng thứ 3</a></li>
+				<li id="li-tab4" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[16]) && empty($user[18]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab4">Tháng thứ 6</a></li>
+				<li id="li-tab5" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[18]) && empty($user[20]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab5">Tháng thứ 9</a></li>
+				<li id="li-tab6" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[20]) && empty($user[22]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab6">Tháng thứ 12</a></li>
+				<li id="li-tab7" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[22]) && empty($user[24]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab7">Tháng thứ 15</a></li>
+				<li id="li-tab8" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[24]) && empty($user[26]) && empty($isDisableOtherTabs) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab8">Tháng thứ 18</a></li>
+				<li id="li-tab9" class="li-tab @if(!empty($isDisableOtherTabs)) hide @endif {{ !empty($user[26]) && empty($user[27]) && empty($isDisableOtherTabs) ? "active" : ""  }}"><a data-toggle="tab" href="#tab9">Các cuộc hẹn khác</a></li>
 			</ul>
 		</div>
 		<div class="widget-content tab-content">
-			<div id="tab1" class="tab-pane {{ empty($user[0]) || empty($user[12]) ? "active" : ""  }}">
+			<div id="tab1" class="tab-pane {{ empty($user[0]) || empty($user[12]) || !empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab1')
 			</div>
-			<div id="tab2" class="tab-pane {{ !empty($user[12]) && empty($user[14]) ? "active" : ""  }}">
+			<div id="tab2" class="tab-pane {{ !empty($user[12]) && empty($user[14]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '2'])
 			</div>
-			<div id="tab3" class="tab-pane {{ !empty($user[14]) && empty($user[16]) ? "active" : ""  }}">
+			<div id="tab3" class="tab-pane {{ !empty($user[14]) && empty($user[16]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '3'])
 			</div>
-			<div id="tab4" class="tab-pane {{ !empty($user[16]) && empty($user[18]) ? "active" : ""  }}">
+			<div id="tab4" class="tab-pane {{ !empty($user[16]) && empty($user[18]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '4'])
 			</div>
-			<div id="tab5" class="tab-pane {{ !empty($user[18]) && empty($user[20]) ? "active" : ""  }}">
+			<div id="tab5" class="tab-pane {{ !empty($user[18]) && empty($user[20]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '5'])
 			</div>
-			<div id="tab6" class="tab-pane {{ !empty($user[20]) && empty($user[22]) ? "active" : ""  }}">
+			<div id="tab6" class="tab-pane {{ !empty($user[20]) && empty($user[22]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '6'])
 			</div>
-			<div id="tab7" class="tab-pane {{ !empty($user[22]) && empty($user[24]) ? "active" : ""  }}">
+			<div id="tab7" class="tab-pane {{ !empty($user[22]) && empty($user[24]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '7'])
 			</div>
-			<div id="tab8" class="tab-pane {{ !empty($user[24]) && empty($user[26]) ? "active" : ""  }}">
+			<div id="tab8" class="tab-pane {{ !empty($user[24]) && empty($user[26]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab234', ['tab' => '8'])
 			</div>
-			<div id="tab9" class="tab-pane {{ !empty($user[26]) && empty($user[27]) ? "active" : ""  }}">
+			<div id="tab9" class="tab-pane {{ !empty($user[26]) && empty($user[27]) && empty($isDisableOtherTabs) ? "active" : ""  }}">
 				@include('user.elements.form_tab9')
 			</div>
 		</div>
