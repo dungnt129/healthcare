@@ -37,7 +37,7 @@
 		<div class="control-group">
 			<label class="control-label">Mã số</label>
 			<div class="controls">
-				{!! Form::text("user_id", $user[0], ["id" => "user_id", "disabled" => "disabled"]) !!}
+				{!! Form::text("user_id", str_pad($user[0], 3, "0", STR_PAD_LEFT), ["id" => "user_id", "disabled" => "disabled"]) !!}
 			</div>
 		</div>
 		@endif

@@ -105,9 +105,14 @@ class UserController extends Controller {
 		if (empty($user)) {
 			return redirect()->route('user.list')->with('fail_message', 'User is not exist.');
 		}
-
+        
         // Check hide other tabs
-        $isDisableOtherTabs = ((!empty($user[11]["tuvanvien1"]["checkCondition"]) && $user[11]["tuvanvien1"]["checkCondition"] == 2) || (!empty($user[11]["bacsi"]["checkCondition"]) && $user[11]["bacsi"]["checkCondition"] == 2));
+        $isDisableOtherTabs = 
+            (
+                (!empty($user[11]["tuvanvien1"]["checkCondition"]) && $user[11]["tuvanvien1"]["checkCondition"] == 2) ||
+                (!empty($user[11]["bacsi"]["checkCondition"]) && $user[11]["bacsi"]["checkCondition"] == 2) ||
+                (!empty($user[11]["tuvanvien3"]["accept_prep"]) && $user[11]["tuvanvien3"]["accept_prep"] == 2)
+            );
 
 		return view('user.update', [
 			'user' => $user,

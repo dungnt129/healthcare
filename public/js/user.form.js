@@ -8,13 +8,13 @@ $(function () {
 	// Validate when submit form
 	$("#basic_validate").submit(function() {
 		// Validate
-		var regexCheck = /^([a-z]{7}[0-9]{4})$/;
+		var regexCheck = /^([0-9]{4}[a-z]{7})$/;
 		var maUIC = $('input[name=tab\\[1\\]\\[tuvanvien3\\]\\[maBenhNhan\\]]').val();
 		var checkAcceptPrep = $('input[name=tab\\[1\\]\\[tuvanvien3\\]\\[accept_prep\\]]:checked').val();
 		var otherReasonText = $("#tab1_tuvanvien3_otherReasonText");
 
 		if(maUIC != '' && !regexCheck.test(maUIC)) {
-			alert("Hãy nhập Mã UIC của khách hàng theo định dạng: 7 kí tự & 4 chữ số, tất cả viết thường");
+			alert("Hãy nhập Mã UIC của khách hàng theo định dạng: 4 chữ số & 7 kí tự, tất cả viết thường");
 			$("#tab\\[1\\]\\[tuvanvien3\\]\\[maBenhNhan\\]").focus();
 			return false;
 		}
@@ -52,7 +52,7 @@ $(function () {
 		});
 
 		if(!checkSubQuestion) {
-			alert("Tab " + falseId + " - Câu b phải có số nhỏ hơn hoặc bằng hơn câu a");
+			alert("Câu B của Câu 8 - Các hành vi nguy cơ phải có số nhỏ hơn hoặc bằng câu a");
 			$("#tab" + falseId + "_tuvanvien1_howManyAssSexFriends").focus();
 			return false;
 		}
@@ -245,6 +245,7 @@ $(function () {
 		} else {
 			$("#tab1_tuvanvien3_otherReasonText").val('');
 			$("#cancelReason").fadeOut();
+			$(".li-tab").hide();
 		}
 	});
 	/* End tab 1 */
