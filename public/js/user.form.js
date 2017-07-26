@@ -242,10 +242,11 @@ $(function () {
 
 		if($(this).val() == 2 && $(this).attr('checked')) {
 			$("#cancelReason").fadeIn();
+			$(".li-tab").hide();
 		} else {
 			$("#tab1_tuvanvien3_otherReasonText").val('');
 			$("#cancelReason").fadeOut();
-			$(".li-tab").hide();
+			$(".li-tab").show();
 		}
 	});
 	/* End tab 1 */
