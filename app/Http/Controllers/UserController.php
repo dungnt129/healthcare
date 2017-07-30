@@ -32,11 +32,14 @@ class UserController extends Controller {
 		$googleSheetHelper = GoogleSheet::getInstance();
 		$userSheetId = Config::get('google.user_data_sheet');
 
+        $loginUser = session('user');
+
 		// Get list user data from google sheet
 		$users = $googleSheetHelper->getSpreadSheetData($userSheetId, 'Sheet1!A3:E');
 
 		return view('user.index', [
 			'users' => $users,
+            'loginUser' => $loginUser,
 			'pageTitle' => 'Danh sách khách hàng',
 		]);
 	}
