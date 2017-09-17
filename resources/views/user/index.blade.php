@@ -43,7 +43,7 @@
 			<tbody>
 				@foreach($users as $key => $user)
 				<tr>
-					<td>{!! !empty($user[0]) ? nl2br($user[0]) : '' !!}</td>
+					<td>{!! !empty($user[0]) ? nl2br(str_pad($user[0], 3, "0", STR_PAD_LEFT)) : '' !!}</td>
 					<td>
 						<a href="{{ route('user.update', ['user_id' => $user[0]]) }}">
 							{!! !empty($user[1]) ? nl2br($user[1]) : '' !!}

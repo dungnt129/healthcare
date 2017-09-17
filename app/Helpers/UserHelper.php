@@ -422,7 +422,8 @@ class UserHelper {
 		$arrDataBacsiRequired = [
 			"tenbacsi", "date", "fastHIVresult", "fastHIVresultdate", "confirmHIVresult", "confirmHIVresultdate",
 			"chucnangthanResult", "chucnangthanResultDate", "hasSideEffects", "antiHCVresult", "antiHCVresultdate",
-			"VDRLRPRresult", "VDRLRPRresultdate", "poisonGanResult", "poisonGanResultDate"
+			"VDRLRPRresult", "VDRLRPRresultdate"
+//            , "poisonGanResult", "poisonGanResultDate"
 		];
 
 //		$arrDataTuvanvien3Required = [

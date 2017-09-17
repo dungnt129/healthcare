@@ -272,21 +272,7 @@
 			'6' => 7
 		];?>
 		<div class="control-group">
-			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 4 }}. Nhiễm độc gan: Mức AST và ALT</label>
-			<div class="controls-custom">
-				<span>Ngày xét nghiệm</span>
-				{!! Form::text("tab[{$tab}][bacsi][poisonGanResultDate]", !empty($user[$index]["bacsi"]["poisonGanResultDate"]) ? $user[$index]["bacsi"]["poisonGanResultDate"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResultDate]", "class" => "span2 datepicker", "data-date-format" => "dd/mm/yyyy", "readonly" => ""]) !!}
-				{!! Form::select("tab[{$tab}][bacsi][poisonGanResult]", UserHelper::$optionResult6, !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "", ["id" => "tab[{$tab}][bacsi][poisonGanResult]", "class" => "span2 margin-right5", "disabled" => ""]) !!}
-				{!! Form::hidden("tab[{$tab}][bacsi][poisonGanResult]", !empty($user[$index]["bacsi"]["poisonGanResult"]) ? $user[$index]["bacsi"]["poisonGanResult"] : "" ) !!}
-			</div>
-		</div>
-		<?php
-		$questionNo = [
-			'4' => 6,
-			'6' => 8
-		];?>
-		<div class="control-group">
-			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 5  }}. Các nhận xét khác</label>
+			<label class="control-label-custom">{{ !empty($questionNo[$tab]) ? $questionNo[$tab] : 4  }}. Các nhận xét khác</label>
 			<div class="controls-custom">
 				{!! Form::textarea ("tab[{$tab}][bacsi][otherComment]", !empty($user[$index]["bacsi"]["otherComment"]) ? $user[$index]["bacsi"]["otherComment"] : "", ["id" => "tab[{$tab}][bacsi][otherComment]", "class" => "span6", "cols" => "5", "rows" => "5", "readonly" => ""]) !!}
 			</div>
