@@ -40,7 +40,7 @@ $(function () {
 			var howManySexFriends = $("#tab" + id + "_tuvanvien1_howManySexFriends").val();
 			var howManyAssSexFriends = $("#tab" + id + "_tuvanvien1_howManyAssSexFriends").val();
 
-			if(howManySexFriends != '' && howManyAssSexFriends != '' && howManyAssSexFriends > howManySexFriends) {
+			if(howManySexFriends != '' && howManyAssSexFriends != '' && parseInt(howManyAssSexFriends) > parseInt(howManySexFriends)) {
 				// Set check false
 				checkSubQuestion = false;
 				falseId = id;
